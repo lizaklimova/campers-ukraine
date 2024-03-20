@@ -1,4 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavorites, removeFromFavorites } from "../../redux/adverts/slice";
 import { PiWind } from "react-icons/pi";
+import { selectFavorites } from "../../redux/adverts/selectors";
 import {
   StarIcon,
   LocationIcon,
@@ -22,9 +25,15 @@ import {
   Description,
   DetailsList,
   ShowBtn,
+  AddToFavBtn,
 } from "./AdvertCard.styled";
 
 const AdvertCard = ({ card }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+
+  const isCardFavorite = favorites.find((fav) => fav._id === card._id);
+
   return (
     <>
       <VanPic>
@@ -37,9 +46,18 @@ const AdvertCard = ({ card }) => {
 
           <PriceWrap>
             <Price>€{card.price.toFixed(2)}</Price>
-            <button type="button">
+            <AddToFavBtn
+              type="button"
+              aria-label="Add to favorites"
+              onClick={() =>
+                isCardFavorite
+                  ? dispatch(removeFromFavorites(card._id))
+                  : dispatch(addToFavorites(card))
+              }
+              $isFavorite={isCardFavorite}
+            >
               <FavIcon width={20} height={20} />
-            </button>
+            </AddToFavBtn>
           </PriceWrap>
         </TitlePriceWrap>
 
@@ -65,13 +83,13 @@ const AdvertCard = ({ card }) => {
             </div>
           </li>
           <li>
-            <div class="capitalize">
+            <div className="capitalize">
               <TransmissionIcon width={20} height={20} />
               {card.transmission}
             </div>
           </li>
           <li>
-            <div class="capitalize">
+            <div className="capitalize">
               <PetrolIcon width={20} height={20} />
               {card.engine}
             </div>
@@ -101,7 +119,9 @@ const AdvertCard = ({ card }) => {
           )}
         </DetailsList>
 
-        <ShowBtn type="button">Show more</ShowBtn>
+        <ShowBtn type="button" aria-label="Show more details">
+          Show more
+        </ShowBtn>
       </MainInfoWrap>
     </>
   );

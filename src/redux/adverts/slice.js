@@ -3,6 +3,8 @@ import { getAllAdverts } from "./operations";
 
 const initialState = {
   adverts: [],
+  favorites:
+    JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   isLoading: false,
   error: null,
 };
@@ -10,6 +12,14 @@ const initialState = {
 const advertsSlice = createSlice({
   name: "adverts",
   initialState,
+  reducers: {
+    addToFavorites: (state, { payload }) => {
+      state.favorites.push(payload);
+    },
+    removeFromFavorites: (state, { payload }) => {
+      state.favorites = state.favorites.filter((card) => card._id !== payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
@@ -34,3 +44,4 @@ const advertsSlice = createSlice({
 });
 
 export const advertsReducer = advertsSlice.reducer;
+export const { addToFavorites, removeFromFavorites } = advertsSlice.actions;

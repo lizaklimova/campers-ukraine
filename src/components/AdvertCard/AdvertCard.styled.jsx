@@ -2,8 +2,12 @@ import styled, { css } from "styled-components";
 
 const TitlesStyles = css`
   color: var(--text-color);
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
 `;
 
 const FlexAlign = css`
@@ -15,7 +19,7 @@ export const AdvertsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 50px;
+  margin: 50px 0;
 `;
 
 export const CardItem = styled.li`
@@ -28,7 +32,6 @@ export const CardItem = styled.li`
   border: 1px solid var(--border-color);
   padding: 15px;
   background-color: var(--white);
-  /* background: #040404; */
   box-shadow: rgba(239, 241, 243, 0.3) 0px 1px 2px 0px,
     rgba(225, 229, 232, 0.15) 0px 1px 3px 1px;
 
@@ -53,7 +56,7 @@ export const VanPic = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    min-width: 20%;
+    min-width: 30%;
     max-width: 30%;
   }
 
@@ -90,20 +93,23 @@ export const Title = styled.p`
 export const PriceWrap = styled.div`
   ${FlexAlign}
   gap: 8px;
+`;
 
-  button {
-    svg {
-      fill: transparent;
-      stroke: var(--text-color);
-      transition: fill var(--cubic-transition);
-    }
+export const AddToFavBtn = styled.button`
+  svg {
+    fill: ${({ $isFavorite }) =>
+      $isFavorite ? "var(--accent-red)" : "transparent"};
+    stroke: ${({ $isFavorite }) =>
+      $isFavorite ? "none" : "var(--text-color)"};
+    transition: fill var(--cubic-transition);
+  }
 
-    @media screen and (min-width: 1440px) {
-      &:hover svg,
-      &:focus svg {
-        fill: var(--accent-red);
-        stroke: var(--accent-red);
-      }
+  @media screen and (min-width: 1440px) {
+    &:hover svg {
+      fill: ${({ $isFavorite }) =>
+        $isFavorite ? "transparent" : "var(--accent-red)"};
+      stroke: ${({ $isFavorite }) =>
+        $isFavorite ? "var(--text-color)" : "var(--accent-red)"};
     }
   }
 `;
@@ -154,7 +160,7 @@ export const DetailsList = styled.ul`
   gap: 8px;
 
   li {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     border-radius: 100px;
     padding: 10px 20px;
@@ -162,6 +168,7 @@ export const DetailsList = styled.ul`
     background-color: var(--grey);
 
     @media screen and (min-width: 1440px) {
+      font-size: 16px;
       padding: 12px 24px;
     }
 
@@ -182,16 +189,17 @@ export const DetailsList = styled.ul`
 `;
 
 export const ShowBtn = styled.button`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.08px;
-  max-width: 150px;
+  max-width: 140px;
   border-radius: 200px;
   padding: 16px 0;
   background-color: var(--accent-red);
   color: var(--white);
 
   @media screen and (min-width: 1440px) {
+    font-size: 16px;
     max-width: 166px;
     min-height: 56px;
     transition: background-color var(--linear-transition);

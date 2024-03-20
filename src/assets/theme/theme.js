@@ -4,7 +4,7 @@ const commonTheme = {
   red: "#E44848",
   redHover: "#D84343",
   orange: "#FFC531",
-  backdrop: "rgba(16, 16, 16, 0.7)",
+  backdrop: "rgba(17, 18, 19, 0.40)",
   borderColor: "rgba(16, 24, 40, 0.2)",
 };
 

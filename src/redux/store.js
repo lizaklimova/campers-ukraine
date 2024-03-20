@@ -13,9 +13,9 @@ import storage from "redux-persist/lib/storage";
 import { advertsReducer } from "./adverts/slice";
 
 const advertsPersistConfig = {
-  key: "adverts",
+  key: "favorites",
   storage,
-  whitelist: ["adverts"],
+  whitelist: ["favorites"],
 };
 
 export const store = configureStore({
