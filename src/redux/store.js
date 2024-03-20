@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { advertsReducer } from "./adverts/advertsSlice";
+import { advertsReducer } from "./adverts/slice";
 
 const advertsPersistConfig = {
   key: "adverts",

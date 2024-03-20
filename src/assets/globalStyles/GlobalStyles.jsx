@@ -2,8 +2,17 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-    --easedTransition: 350ms ease-in-out;
-    --cubicTransition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --background: ${({ theme }) => theme.background};
+  --text-color: ${({ theme }) => theme.text};
+  --light-text: ${({ theme }) => theme.lightText};
+  --white: ${({ theme }) => theme.white};
+  --grey: ${({ theme }) => theme.grey};
+  --accent-red: ${({ theme }) => theme.red};
+  --accent-orange: ${({ theme }) => theme.orange};
+  --backdrop: ${({ theme }) => theme.backdrop};
+  --border-color: ${({ theme }) => theme.borderColor};
+  --easedTransition: 350ms ease-in-out;
+  --cubicTransition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 *,
@@ -13,27 +22,27 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-    font-family: 'Poppins', 'Golos Text', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background);
     margin: 0;
 }
 
- ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 7px;
 } 
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-bar-color);
+  background-color: var(--accent-red);
   border-radius: 7px;
 }
 
 ::-webkit-scrollbar-track {
-   background-color: var(--scroll-bar-bg);
-   color: rgba(255, 255, 255, 0.4);
+  background-color: var(--grey);
 }
 
 h1,
