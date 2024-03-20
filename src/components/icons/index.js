@@ -6,6 +6,7 @@ import LocationIcon from "./LocationIcon";
 import PetrolIcon from "./PetrolIcon";
 import TransmissionIcon from "./TransmissionIcon";
 import StarIcon from "./StarIcon";
+import CloseIcon from "./CloseIcon";
 
 export {
   AdultsIcon,
@@ -16,4 +17,5 @@ export {
   PetrolIcon,
   TransmissionIcon,
   StarIcon,
+  CloseIcon,
 };

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/adverts/slice";
 import { PiWind } from "react-icons/pi";
 import { selectFavorites } from "../../redux/adverts/selectors";
+import Modal from "components/Modal";
 import {
   StarIcon,
   LocationIcon,
@@ -29,6 +31,8 @@ import {
 } from "./AdvertCard.styled";
 
 const AdvertCard = ({ card }) => {
+  const [isModalShown, setIsModalShown] = useState(false);
+
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
@@ -119,10 +123,21 @@ const AdvertCard = ({ card }) => {
           )}
         </DetailsList>
 
-        <ShowBtn type="button" aria-label="Show more details">
+        <ShowBtn
+          type="button"
+          aria-label="Show more details"
+          onClick={() => {
+            setIsModalShown(true);
+            document.body.style.overflow = "hidden";
+          }}
+        >
           Show more
         </ShowBtn>
       </MainInfoWrap>
+
+      {isModalShown && (
+        <Modal card={card} closeModal={() => setIsModalShown(false)} />
+      )}
     </>
   );
 };
