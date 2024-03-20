@@ -9,9 +9,9 @@ export const HeaderBlock = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 35px;
+  font-size: 25px;
   padding: 15px;
-  min-height: 150px;
+  min-height: 100px;
   background-color: var(--background);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 `;
@@ -39,8 +39,8 @@ export const NavigLink = styled(NavLink)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
     padding: 5px;
     background-color: var(--accent-red);
