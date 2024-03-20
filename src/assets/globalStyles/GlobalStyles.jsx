@@ -8,11 +8,12 @@ const GlobalStyles = createGlobalStyle`
   --white: ${({ theme }) => theme.white};
   --grey: ${({ theme }) => theme.grey};
   --accent-red: ${({ theme }) => theme.red};
+  --red-hover: ${({ theme }) => theme.redHover};
   --accent-orange: ${({ theme }) => theme.orange};
   --backdrop: ${({ theme }) => theme.backdrop};
   --border-color: ${({ theme }) => theme.borderColor};
-  --easedTransition: 350ms ease-in-out;
-  --cubicTransition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --linear-transition: 150ms linear;
+  --cubic-transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 *,

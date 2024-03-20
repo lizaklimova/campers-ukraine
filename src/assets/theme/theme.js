@@ -2,6 +2,7 @@ const commonTheme = {
   white: "#fff",
   grey: "#F2F4F7",
   red: "#E44848",
+  redHover: "#D84343",
   orange: "#FFC531",
   backdrop: "rgba(16, 16, 16, 0.7)",
   borderColor: "rgba(16, 24, 40, 0.2)",
@@ -11,6 +12,8 @@ export const lightTheme = Object.freeze({
   background: "#F2F4F7",
   text: "#101828",
   lightText: "#475467",
+  cardBoxShadow:
+    "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
   ...commonTheme,
 });
 
@@ -18,5 +21,7 @@ export const darkTheme = Object.freeze({
   background: "#101828",
   text: "#F2F4F7",
   lightText: "#F7F7F7",
+  cardBoxShadow:
+    "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
   ...commonTheme,
 });

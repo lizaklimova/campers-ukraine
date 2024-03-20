@@ -27,80 +27,78 @@ import {
 const AdvertCard = ({ card }) => {
   return (
     <>
-      <VanPic src={card.gallery[0]} alt={card.name} />
+      <VanPic>
+        <img src={card.gallery[0]} alt={card.name} />
+      </VanPic>
 
       <MainInfoWrap>
         <TitlePriceWrap>
-          <Title>Mavericks</Title>
+          <Title>{card.name}</Title>
 
           <PriceWrap>
-            <Price>$8000</Price>
+            <Price>€{card.price.toFixed(2)}</Price>
             <button type="button">
               <FavIcon width={20} height={20} />
             </button>
           </PriceWrap>
-          {/* <p>{advert.name}</p>
-          <p>{advert.price}</p> */}
         </TitlePriceWrap>
 
         <RatingLocationWrap>
           <RatingWrap>
-            {/* <p>{`${advert.rating}(${advert.reviews.length} Reviews)`}</p> */}
             <StarIcon width={20} height={20} />
-            <p>4.4(2 Reviews)</p>
+            <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
           </RatingWrap>
 
           <LocationWrap>
-            {/* <p>{advert.location}</p> */}
             <LocationIcon width={20} height={20} />
-            <p>Kyiv, Ukraine</p>
+            <p>{card.location.split(",").reverse().join(", ")}</p>
           </LocationWrap>
         </RatingLocationWrap>
 
-        {/* <p>{advert.description}</p> */}
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-          voluptatibus ut animi enim, iste culpa suscipit reprehenderit dolor
-          debitis nisi ullam aliquid corrupti explicabo aspernatur vitae ipsam
-          recusandae rerum in.
-        </Description>
+        <Description>{card.description}</Description>
 
         <DetailsList>
           <li>
             <div>
-              2 adults
               <AdultsIcon width={20} height={20} />
+              {card.adults} adults
             </div>
           </li>
           <li>
-            <div>
-              automatic
+            <div class="capitalize">
               <TransmissionIcon width={20} height={20} />
+              {card.transmission}
             </div>
           </li>
           <li>
-            <div>
-              petrol
+            <div class="capitalize">
               <PetrolIcon width={20} height={20} />
+              {card.engine}
             </div>
           </li>
+          {card.details.kitchen >= 1 && (
+            <li>
+              <div>
+                <KitchenIcon width={20} height={20} />
+                Kitchen
+              </div>
+            </li>
+          )}
+
           <li>
             <div>
-              <KitchenIcon width={20} height={20} />
-              kitchen
+              <BedIcon width={20} height={20} />
+              {card.details.beds} beds
             </div>
           </li>
-          <li>
-            <div>
-              <BedIcon width={20} height={20} />1 beds
-            </div>
-          </li>
-          <li>
-            <div>
-              <PiWind size={20} />
-              AC
-            </div>
-          </li>
+          {card.details.airConditioner >= 1 && (
+            <li>
+              <div>
+                <PiWind size={20} style={{ fill: "var(--text-color)" }} />
+                AC
+              </div>
+            </li>
+          )}
         </DetailsList>
 
         <ShowBtn type="button">Show more</ShowBtn>
