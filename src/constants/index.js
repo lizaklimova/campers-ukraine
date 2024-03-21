@@ -4,3 +4,5 @@ export const FORM_INIT_VALUES = {
   date: Date.now(),
   comment: "",
 };
+
+export const LIMIT = 4;

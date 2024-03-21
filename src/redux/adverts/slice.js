@@ -3,6 +3,7 @@ import { getAllAdverts } from "./operations";
 
 const initialState = {
   adverts: [],
+  total: 13,
   favorites:
     JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   isLoading: false,
@@ -23,13 +24,13 @@ const advertsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
-        state.adverts = payload;
+        state.adverts = [...state.adverts, ...payload];
         state.isLoading = false;
         state.error = null;
       })
       .addMatcher(
         (action) => action.type.endsWith("/pending"),
-        (state, { payload }) => {
+        (state) => {
           state.isLoading = true;
         }
       )

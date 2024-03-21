@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/adverts/slice";
 import { PiWind } from "react-icons/pi";
@@ -38,7 +38,10 @@ const AdvertCard = ({ card }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
-  const isCardFavorite = favorites.find((fav) => fav._id === card._id);
+  const isCardFavorite = useMemo(
+    () => favorites.find((fav) => fav._id === card._id),
+    [favorites, card._id]
+  );
 
   const scrollToReviews = () => {
     console.log(reviewsRef);
@@ -70,7 +73,7 @@ const AdvertCard = ({ card }) => {
                   ? dispatch(removeFromFavorites(card._id))
                   : dispatch(addToFavorites(card))
               }
-              $isFavorite={isCardFavorite}
+              $isFavorite={!!isCardFavorite}
             >
               <FavIcon width={20} height={20} />
             </AddToFavBtn>

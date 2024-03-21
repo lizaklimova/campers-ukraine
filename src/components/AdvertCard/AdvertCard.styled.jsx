@@ -208,3 +208,23 @@ export const ShowBtn = styled.button`
     }
   }
 `;
+
+export const LoadMoreBtn = styled.button`
+  display: block;
+  border-radius: 200px;
+  border: 1px solid var(--border-color);
+  padding: 16px 32px;
+  margin: 0 auto 30px auto;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.08px;
+  color: var(--text-color);
+  transition: border-color var(--linear-transition);
+
+  @media screen and (min-width: 1440px) {
+    &:hover,
+    &:focus {
+      border-color: var(--accent-red);
+    }
+  }
+`;
