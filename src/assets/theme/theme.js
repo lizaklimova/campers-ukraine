@@ -4,8 +4,10 @@ const commonTheme = {
   red: "#E44848",
   redHover: "#D84343",
   orange: "#FFC531",
+  inputBackground: "#F7F7F7",
   backdrop: "rgba(17, 18, 19, 0.40)",
   borderColor: "rgba(16, 24, 40, 0.2)",
+  placeholderColor: "rgba(16, 24, 40, 0.6)",
 };
 
 export const lightTheme = Object.freeze({

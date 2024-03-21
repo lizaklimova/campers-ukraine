@@ -12,6 +12,17 @@ export const Backdrop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all var(--cubic-transition);
+
+  &.is-shown {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 `;
 
 export const Window = styled.div`
@@ -19,11 +30,37 @@ export const Window = styled.div`
   width: 100%;
   height: 90vh;
   border-radius: 20px;
-  padding: 20px;
+  padding: 40px 20px;
   background-color: var(--white);
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 50px;
+    margin: 25px 0;
+    background-color: var(--white);
+  }
 
   @media screen and (min-width: 1440px) {
     padding: 40px;
+  }
+
+  &.is-shown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transform: scale(1);
+  }
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.7);
+    transform: translateY(-100vh);
   }
 `;
 
@@ -42,14 +79,16 @@ export const HeadInfo = styled.div`
   #rating-wrap {
     margin-top: -15px;
   }
+`;
 
-  #description {
-    margin-bottom: 40px;
-  }
+export const ModalDescr = styled.p`
+  font-size: 16px;
+  color: var(--light-text);
 `;
 
 export const PicsList = styled.ul`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -59,10 +98,21 @@ export const PicsList = styled.ul`
     height: 7px;
   }
 
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
   li {
-    width: calc(100% / 3);
+    width: 100%;
     display: flex;
     align-items: center;
+    min-height: 200px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      width: calc(100% / 3);
+      min-height: 300px;
+    }
   }
 
   img {
@@ -70,7 +120,9 @@ export const PicsList = styled.ul`
     object-fit: cover;
     width: 100%;
     align-self: stretch;
-    margin-bottom: 5px;
+
+    @media screen and (min-width: 768px) {
+    }
   }
 `;
 

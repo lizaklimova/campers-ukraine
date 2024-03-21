@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/adverts/slice";
 import { PiWind } from "react-icons/pi";
@@ -32,11 +32,23 @@ import {
 
 const AdvertCard = ({ card }) => {
   const [isModalShown, setIsModalShown] = useState(false);
+  const [activeTab, setActiveTab] = useState("features");
 
+  const reviewsRef = useRef();
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
   const isCardFavorite = favorites.find((fav) => fav._id === card._id);
+
+  const scrollToReviews = () => {
+    console.log(reviewsRef);
+    if (reviewsRef.current) {
+      reviewsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <>
@@ -68,7 +80,15 @@ const AdvertCard = ({ card }) => {
         <RatingLocationWrap>
           <RatingWrap>
             <StarIcon width={20} height={20} />
-            <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
+            <button
+              type="button"
+              aria-label="Open reviews"
+              onClick={() => {
+                setIsModalShown(true);
+                setActiveTab("reviews");
+                scrollToReviews();
+              }}
+            >{`${card.rating}(${card.reviews.length} Reviews)`}</button>
           </RatingWrap>
 
           <LocationWrap>
@@ -81,44 +101,36 @@ const AdvertCard = ({ card }) => {
 
         <DetailsList>
           <li>
-            <div>
-              <AdultsIcon width={20} height={20} />
-              {card.adults} adults
-            </div>
+            <AdultsIcon width={20} height={20} />
+            {card.adults} adults
           </li>
-          <li>
-            <div className="capitalize">
-              <TransmissionIcon width={20} height={20} />
-              {card.transmission}
-            </div>
+
+          <li className="capitalize">
+            <TransmissionIcon width={20} height={20} />
+            {card.transmission}
           </li>
-          <li>
-            <div className="capitalize">
-              <PetrolIcon width={20} height={20} />
-              {card.engine}
-            </div>
+
+          <li className="capitalize">
+            <PetrolIcon width={20} height={20} />
+            {card.engine}
           </li>
+
           {card.details.kitchen >= 1 && (
             <li>
-              <div>
-                <KitchenIcon width={20} height={20} />
-                Kitchen
-              </div>
+              <KitchenIcon width={20} height={20} />
+              Kitchen
             </li>
           )}
 
           <li>
-            <div>
-              <BedIcon width={20} height={20} />
-              {card.details.beds} beds
-            </div>
+            <BedIcon width={20} height={20} />
+            {card.details.beds} beds
           </li>
+
           {card.details.airConditioner >= 1 && (
             <li>
-              <div>
-                <PiWind size={20} style={{ fill: "var(--text-color)" }} />
-                AC
-              </div>
+              <PiWind size={20} style={{ fill: "var(--text-color)" }} />
+              AC
             </li>
           )}
         </DetailsList>
@@ -136,7 +148,14 @@ const AdvertCard = ({ card }) => {
       </MainInfoWrap>
 
       {isModalShown && (
-        <Modal card={card} closeModal={() => setIsModalShown(false)} />
+        <Modal
+          card={card}
+          isModalShown={isModalShown}
+          closeModal={() => setIsModalShown(false)}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          ref={reviewsRef}
+        />
       )}
     </>
   );

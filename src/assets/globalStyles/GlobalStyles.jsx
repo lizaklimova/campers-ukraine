@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
   --accent-orange: ${({ theme }) => theme.orange};
   --backdrop: ${({ theme }) => theme.backdrop};
   --border-color: ${({ theme }) => theme.borderColor};
+  --input-background: ${({ theme }) => theme.inputBackground};
+  --placeholder-color: ${({ theme }) => theme.placeholderColor};
   --linear-transition: 150ms linear;
   --cubic-transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

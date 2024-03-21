@@ -131,8 +131,14 @@ export const RatingWrap = styled.div`
   ${FlexAlign}
   gap: 5px;
 
-  p {
+  button {
     text-decoration: underline;
+    cursor: pointer;
+    transition: color var(--linear-transition);
+
+    &:hover {
+      color: var(--accent-orange);
+    }
   }
 `;
 
@@ -160,6 +166,8 @@ export const DetailsList = styled.ul`
   gap: 8px;
 
   li {
+    ${FlexAlign}
+    gap: 5px;
     font-size: 14px;
     font-weight: 500;
     border-radius: 100px;
@@ -167,23 +175,13 @@ export const DetailsList = styled.ul`
     color: var(--text-color);
     background-color: var(--grey);
 
+    &.capitalize {
+      text-transform: capitalize;
+    }
+
     @media screen and (min-width: 1440px) {
       font-size: 16px;
       padding: 12px 24px;
-    }
-
-    div {
-      ${FlexAlign}
-      gap: 5px;
-
-      &.capitalize {
-        text-transform: capitalize;
-      }
-    }
-
-    svg {
-      fill: none;
-      stroke: var(--text-color);
     }
   }
 `;

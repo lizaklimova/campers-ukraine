@@ -1,17 +1,18 @@
-import { useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon, LocationIcon, StarIcon } from "components/icons";
+import { MainContainer } from "layouts/MainContainer";
+import Tabs from "./Tabs";
 import {
   Backdrop,
   CLoseBtn,
   Content,
   HeadInfo,
+  ModalDescr,
   PicsList,
   Window,
 } from "./Modal.styled";
-import { MainContainer } from "layouts/MainContainer";
 import {
-  Description,
   LocationWrap,
   Price,
   RatingLocationWrap,
@@ -19,7 +20,8 @@ import {
   Title,
 } from "components/AdvertCard/AdvertCard.styled";
 
-const Modal = ({ card, closeModal }) => {
+const Modal = forwardRef(function Modal(props, ref) {
+  const { card, isModalShown, closeModal, activeTab, setActiveTab } = props;
   useEffect(() => {
     const handleESCClose = (e) => {
       if (e.code === "Escape") closeModal();
@@ -38,11 +40,14 @@ const Modal = ({ card, closeModal }) => {
   };
 
   return createPortal(
-    <Backdrop onClick={handleBackdropClose}>
-      <MainContainer>
-        <Window>
+    <Backdrop
+      className={isModalShown ? "is-shown" : "is-hidden"}
+      onClick={handleBackdropClose}
+    >
+      <MainContainer onClick={handleBackdropClose}>
+        <Window className={isModalShown ? "is-shown" : "is-hidden"}>
           <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
-            <CloseIcon width={40} height={40} />
+            <CloseIcon width={20} height={20} />
           </CLoseBtn>
 
           <Content>
@@ -73,13 +78,21 @@ const Modal = ({ card, closeModal }) => {
                 ))}
             </PicsList>
 
-            <Description id="description">{card.description}</Description>
+            <ModalDescr>{card.description}</ModalDescr>
+
+            <div ref={ref}>
+              <Tabs
+                card={card}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            </div>
           </Content>
         </Window>
       </MainContainer>
     </Backdrop>,
     document.getElementById("modal-root")
   );
-};
+});
 
 export default Modal;

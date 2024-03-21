@@ -7,6 +7,17 @@ import PetrolIcon from "./PetrolIcon";
 import TransmissionIcon from "./TransmissionIcon";
 import StarIcon from "./StarIcon";
 import CloseIcon from "./CloseIcon";
+import ConditionerIcon from "./ConditionerIcon";
+import CDIcon from "./CDIcon";
+import RadioIcon from "./RadioIcon";
+import HobIcon from "./HobIcon";
+import TVIcon from "./TVIcon";
+import ShowerIcon from "./ShowerIcon";
+import ToiletIcon from "./ToiletIcon";
+import FreezerIcon from "./FreezerIcon";
+import GasIcon from "./GasIcon";
+import WaterIcon from "./WaterIcon";
+import MicrowaveIcon from "./MicrowaveIcon";
 
 export {
   AdultsIcon,
@@ -18,4 +29,15 @@ export {
   TransmissionIcon,
   StarIcon,
   CloseIcon,
+  ConditionerIcon,
+  CDIcon,
+  RadioIcon,
+  HobIcon,
+  TVIcon,
+  ShowerIcon,
+  ToiletIcon,
+  FreezerIcon,
+  GasIcon,
+  WaterIcon,
+  MicrowaveIcon,
 };

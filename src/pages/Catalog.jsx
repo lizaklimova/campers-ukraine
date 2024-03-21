@@ -13,7 +13,7 @@ const Catalog = () => {
   const adverts = useSelector(selectAdverts);
 
   useEffect(() => {
-    dispatch(getAllAdverts());
+    dispatch(getAllAdverts({ page: 1, limit: 4 }));
   }, [dispatch]);
 
   return isLoading ? (
