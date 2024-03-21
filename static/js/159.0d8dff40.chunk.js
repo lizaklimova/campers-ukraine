@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcampers_ukraine=self.webpackChunkcampers_ukraine||[]).push([[159],{4320:(e,s,r)=>{r.r(s),r.d(s,{default:()=>p});var c=r(5043),a=r(3003),n=r(2148),i=r(3547),d=r(7084),t=r(4164),u=r(9743),l=r(7329),h=r(579);const p=()=>{const e=(0,a.wA)(),s=(0,a.d4)(i.Di),r=(0,a.d4)(i.Co);return(0,c.useEffect)((()=>{e((0,n.v)({page:1,limit:4}))}),[e]),s?(0,h.jsx)(t.A,{}):(0,h.jsx)(d.J,{children:(0,h.jsx)(l.KA,{children:r.length>0&&r.map((e=>(0,h.jsx)(l.oV,{children:(0,h.jsx)(u.A,{card:e})},e._id)))})})}}}]);
+//# sourceMappingURL=159.0d8dff40.chunk.js.map
