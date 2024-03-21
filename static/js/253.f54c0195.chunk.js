@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcampers_ukraine=self.webpackChunkcampers_ukraine||[]).push([[253],{1062:(e,s,n)=>{n.r(s),n.d(s,{default:()=>h});var r=n(3003),a=n(3547),d=n(7084),c=n(9439),t=n(7329),i=n(579);const h=()=>{const e=(0,r.d4)(a.Cp);return(0,i.jsx)(i.Fragment,{children:(0,i.jsx)(d.J,{children:e.length>0?(0,i.jsx)(t.KA,{children:e.map((e=>(0,i.jsx)(t.oV,{children:(0,i.jsx)(c.A,{card:e})},e._id)))}):(0,i.jsx)("div",{children:"It seems you have not added anything to favorites ..."})})})}}}]);
+//# sourceMappingURL=253.f54c0195.chunk.js.map

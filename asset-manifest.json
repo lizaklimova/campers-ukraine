@@ -1,33 +1,33 @@
 {
   "files": {
     "main.css": "/campers-ukraine/static/css/main.dec1b4bd.css",
-    "main.js": "/campers-ukraine/static/js/main.ac534b31.js",
+    "main.js": "/campers-ukraine/static/js/main.efd63578.js",
     "static/js/726.e75bf863.chunk.js": "/campers-ukraine/static/js/726.e75bf863.chunk.js",
     "static/css/159.33dbcebf.chunk.css": "/campers-ukraine/static/css/159.33dbcebf.chunk.css",
-    "static/js/159.0d8dff40.chunk.js": "/campers-ukraine/static/js/159.0d8dff40.chunk.js",
+    "static/js/159.af3378b0.chunk.js": "/campers-ukraine/static/js/159.af3378b0.chunk.js",
     "static/css/253.33dbcebf.chunk.css": "/campers-ukraine/static/css/253.33dbcebf.chunk.css",
-    "static/js/253.b0c7b4bc.chunk.js": "/campers-ukraine/static/js/253.b0c7b4bc.chunk.js",
+    "static/js/253.f54c0195.chunk.js": "/campers-ukraine/static/js/253.f54c0195.chunk.js",
     "static/css/998.7b0a75f0.chunk.css": "/campers-ukraine/static/css/998.7b0a75f0.chunk.css",
     "static/js/998.7b817cd0.chunk.js": "/campers-ukraine/static/js/998.7b817cd0.chunk.js",
-    "static/js/743.84c25afd.chunk.js": "/campers-ukraine/static/js/743.84c25afd.chunk.js",
+    "static/js/439.489aa563.chunk.js": "/campers-ukraine/static/js/439.489aa563.chunk.js",
     "static/media/Inter-SemiBold.ttf": "/campers-ukraine/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
     "static/media/Inter-Medium.ttf": "/campers-ukraine/static/media/Inter-Medium.3f7acfe50aad7ad68548.ttf",
     "static/media/Inter-Regular.ttf": "/campers-ukraine/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
-    "static/media/sprite.svg": "/campers-ukraine/static/media/sprite.32bf53f5cdeb7e564c36aa4147f14a47.svg",
+    "static/media/sprite.svg": "/campers-ukraine/static/media/sprite.46c030d90cd8a75219eb292e3d8ff9aa.svg",
     "index.html": "/campers-ukraine/index.html",
     "main.dec1b4bd.css.map": "/campers-ukraine/static/css/main.dec1b4bd.css.map",
-    "main.ac534b31.js.map": "/campers-ukraine/static/js/main.ac534b31.js.map",
+    "main.efd63578.js.map": "/campers-ukraine/static/js/main.efd63578.js.map",
     "726.e75bf863.chunk.js.map": "/campers-ukraine/static/js/726.e75bf863.chunk.js.map",
     "159.33dbcebf.chunk.css.map": "/campers-ukraine/static/css/159.33dbcebf.chunk.css.map",
-    "159.0d8dff40.chunk.js.map": "/campers-ukraine/static/js/159.0d8dff40.chunk.js.map",
+    "159.af3378b0.chunk.js.map": "/campers-ukraine/static/js/159.af3378b0.chunk.js.map",
     "253.33dbcebf.chunk.css.map": "/campers-ukraine/static/css/253.33dbcebf.chunk.css.map",
-    "253.b0c7b4bc.chunk.js.map": "/campers-ukraine/static/js/253.b0c7b4bc.chunk.js.map",
+    "253.f54c0195.chunk.js.map": "/campers-ukraine/static/js/253.f54c0195.chunk.js.map",
     "998.7b0a75f0.chunk.css.map": "/campers-ukraine/static/css/998.7b0a75f0.chunk.css.map",
     "998.7b817cd0.chunk.js.map": "/campers-ukraine/static/js/998.7b817cd0.chunk.js.map",
-    "743.84c25afd.chunk.js.map": "/campers-ukraine/static/js/743.84c25afd.chunk.js.map"
+    "439.489aa563.chunk.js.map": "/campers-ukraine/static/js/439.489aa563.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dec1b4bd.css",
-    "static/js/main.ac534b31.js"
+    "static/js/main.efd63578.js"
   ]
 }
