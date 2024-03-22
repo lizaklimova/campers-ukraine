@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { getAllAdverts, getTotal } from "../redux/adverts/operations";
 import {
   selectAdverts,
+  selectError,
   selectIsLoading,
   selectTotal,
 } from "../redux/adverts/selectors";
@@ -21,6 +22,7 @@ import {
 import "../helpers/formatDate";
 import FiltersForm from "components/FiltersForm/FiltersForm";
 import { CatalogContainer } from "components/FiltersForm/FiltersForm.styled";
+import { smoothScrollToTarget } from "helpers";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
@@ -31,6 +33,7 @@ const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const adverts = useSelector(selectAdverts);
   const total = useSelector(selectTotal);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     setShowLoadMore(true);
@@ -51,6 +54,7 @@ const Catalog = () => {
 
     setShowLoadMore(true);
     setPage((prev) => prev + 1);
+    smoothScrollToTarget("advertBlock");
   };
 
   return (
@@ -64,7 +68,9 @@ const Catalog = () => {
           />
 
           <ListBtnWrap id="advertBlock">
-            {adverts.length > 0 ? (
+            {adverts.length < 0 || error === "Not found" ? (
+              <NoItemsMsg>No items</NoItemsMsg>
+            ) : (
               <AdvertsList>
                 {adverts.map((card) => (
                   <CardItem key={card._id}>
@@ -72,11 +78,9 @@ const Catalog = () => {
                   </CardItem>
                 ))}
               </AdvertsList>
-            ) : (
-              <NoItemsMsg>No items</NoItemsMsg>
             )}
 
-            {showLoadMore && adverts.length > 0 && (
+            {showLoadMore && !error && adverts.length > 0 && (
               <LoadMoreBtn type="button" onClick={handleLoadMore}>
                 Load more
               </LoadMoreBtn>

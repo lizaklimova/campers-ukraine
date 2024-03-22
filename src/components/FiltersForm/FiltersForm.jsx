@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { FILTERS_TYPE, FILTERS_EQUIPMENT } from "constants";
+import { useState, useRef } from "react";
+import Select from "react-dropdown-select";
+import { LOCATION_OPTIONS, FILTERS_TYPE, FILTERS_EQUIPMENT } from "constants";
+import { gerAllSearchParams, smoothScrollToTarget } from "helpers";
 import { LocationIcon } from "components/icons";
 import {
   FiltersWrap,
@@ -8,15 +10,15 @@ import {
   LabelLocation,
   RadioBtn,
   CheckBox,
-  SearchButton,
   FieldSet,
   InputWrap,
+  ButtonsWrap,
 } from "./FiltersForm.styled";
-import { gerAllSearchParams, smoothScrollToTarget } from "helpers";
 
 const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
-  const [location, setLocation] = useState("Ukraine");
   const [filterParams, setFilterParams] = useState({});
+  const checkbox = useRef(null);
+  const dropdownRef = useRef(null);
 
   const params = {};
   gerAllSearchParams(searchParams, params);
@@ -25,18 +27,36 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
     e.preventDefault();
     setSearchParams({});
     setPage(1);
-    setSearchParams({ ...filterParams, filter: location });
+    setSearchParams({ ...filterParams });
     smoothScrollToTarget("advertBlock");
   };
 
+  const resetFilters = () => {
+    [...checkbox.current?.elements].forEach((input) => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        input.checked = false;
+      }
+    });
+
+    dropdownRef.current?.clearAll();
+    setSearchParams({});
+  };
+
   return (
-    <FormFilters onSubmit={handleFilterAdverts}>
+    <FormFilters onSubmit={handleFilterAdverts} ref={checkbox}>
       <LabelLocation>
         Location
-        <input
-          type="text"
-          defaultValue="Ukraine, Kyiv"
-          onChange={({ target }) => setLocation(target.value)}
+        <Select
+          ref={dropdownRef}
+          placeholder="Location"
+          options={LOCATION_OPTIONS}
+          onChange={(arr) => {
+            if (arr.length > 0) {
+              setFilterParams((prev) => ({ ...prev, location: arr[0].value }));
+            }
+          }}
+          closeOnScroll={true}
+          color="var(--accent-red)"
         />
         <LocationIcon width={20} height={20} />
       </LabelLocation>
@@ -53,7 +73,6 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
                   type="checkbox"
                   name={name}
                   value={value}
-                  defaultChecked={params[name] === value}
                   onChange={({ target }) => {
                     if (target.checked) {
                       setFilterParams((prev) => ({
@@ -85,7 +104,6 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
                   type="radio"
                   name="type"
                   value={value}
-                  defaultChecked={params.form === value}
                   onChange={({ target }) =>
                     setFilterParams((prev) => ({
                       ...prev,
@@ -102,7 +120,17 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
         </LabelFilters>
       </FiltersWrap>
 
-      <SearchButton type="submit">Search</SearchButton>
+      <ButtonsWrap>
+        <button type="submit">Search</button>
+        <button
+          id="reset-button"
+          type="button"
+          aria-label="Reset filter fields"
+          onClick={resetFilters}
+        >
+          Reset
+        </button>
+      </ButtonsWrap>
     </FormFilters>
   );
 };

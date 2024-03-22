@@ -58,16 +58,51 @@ export const LabelLocation = styled.label`
 
   svg {
     position: absolute;
-    top: 47px;
+    top: 45px;
     left: 15px;
     fill: none;
     stroke: var(--text-color);
   }
 
-  input {
+  .react-dropdown-select {
     ${commonInputStyles}
     padding: 15px;
     padding-left: 40px;
+    opacity: 1;
+    color: var(--light-text);
+    transition: box-shadow var(--linear-transition);
+
+    &:focus-within {
+      box-shadow: 0 0 5px var(--accent-red);
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .react-dropdown-select-dropdown {
+    width: 100%;
+    background-color: var(--input-background);
+    border-radius: 10px;
+    border: 2px solid var(--accent-red);
+  }
+
+  .react-dropdown-select-item {
+    border-bottom: 1px solid var(--light-text);
+
+    &:hover:not(.react-dropdown-select-item-selected) {
+      color: var(--white);
+      background-color: var(--accent-red);
+      opacity: 0.7;
+    }
+  }
+
+  .react-dropdown-select-item.react-dropdown-select-item-selected,
+  .react-dropdown-select-item.react-dropdown-select-item-active {
+    color: var(--white);
+    font-weight: bold;
+    background-color: var(--accent-red);
   }
 `;
 
@@ -142,12 +177,31 @@ export const CheckBox = styled.div`
   ${commonRadioCheckbox}
 `;
 
-export const SearchButton = styled.button`
-  margin: 0 auto;
-  ${RedButtonStyles}
-  width: 150px;
+export const ButtonsWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  @media screen and (min-width: 1440px) {
-    margin: unset;
+  button {
+    ${RedButtonStyles}
+    width: 150px;
+
+    @media screen and (min-width: 1440px) {
+      margin: unset;
+    }
+  }
+
+  #reset-button {
+    background-color: var(--grey);
+    color: var(--light-text);
+    width: 150px;
+
+    @media screen and (min-width: 1440px) {
+      &:hover,
+      &:focus {
+        background-color: var(--input-background);
+        color: var(--light-text);
+      }
+    }
   }
 `;

@@ -19,6 +19,7 @@ const Calendar = () => {
         setFieldValue(field.name, val);
       }}
       placeholderText="Booking date"
+      autoComplete="off"
     />
   );
 };

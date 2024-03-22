@@ -8,7 +8,7 @@ const initialState = {
   favorites:
     JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   isLoading: false,
-  // error: null,
+  error: null,
 };
 
 const advertsSlice = createSlice({
@@ -30,12 +30,12 @@ const advertsSlice = createSlice({
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
         state.adverts = [...payload];
         state.isLoading = false;
-        // state.error = null;
+        state.error = null;
       })
       .addCase(getTotal.fulfilled, (state, { payload }) => {
         state.total = payload.length;
         state.isLoading = false;
-        // state.error = null;
+        state.error = null;
       })
       .addMatcher(
         (action) => action.type.endsWith("/pending"),
@@ -46,7 +46,7 @@ const advertsSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith("/rejected"),
         (state, { payload }) => {
-          // state.error = payload;
+          state.error = payload.response.data;
           state.isLoading = false;
         }
       );
