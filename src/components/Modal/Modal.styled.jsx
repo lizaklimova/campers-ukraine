@@ -8,6 +8,7 @@ export const Backdrop = styled.div`
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 5;
   background-color: var(--backdrop);
   display: flex;
   align-items: center;
@@ -33,6 +34,7 @@ export const Window = styled.div`
   padding: 40px 20px;
   background-color: var(--white);
   overflow-y: auto;
+  z-index: 5;
 
   &::-webkit-scrollbar {
     width: 3px;

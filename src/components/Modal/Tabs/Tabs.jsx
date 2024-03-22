@@ -5,7 +5,7 @@ import Reviews from "../Reviews";
 
 const Tabs = ({ card, activeTab, setActiveTab }) => {
   return (
-    <TabsWrap id="reviewsBlock">
+    <TabsWrap>
       <TabsList>
         <li>
           <button

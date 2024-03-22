@@ -8,8 +8,8 @@ const smoothScrollToTarget = (target) => {
         scroller.scrollTo(target, {
           duration: 1000,
           delay: 0,
-          smooth: "easeInOutQuint",
-          offset: -50,
+          smooth: true,
+          offset: -100,
         }),
       300
     );

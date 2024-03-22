@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAdverts } from "../redux/adverts/operations";
+import { useSearchParams } from "react-router-dom";
+import { getAllAdverts, getTotal } from "../redux/adverts/operations";
 import {
   selectAdverts,
   selectIsLoading,
@@ -15,6 +16,7 @@ import {
   CardItem,
   ListBtnWrap,
   LoadMoreBtn,
+  NoItemsMsg,
 } from "components/AdvertCard/AdvertCard.styled";
 import "../helpers/formatDate";
 import FiltersForm from "components/FiltersForm/FiltersForm";
@@ -22,19 +24,32 @@ import { CatalogContainer } from "components/FiltersForm/FiltersForm.styled";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [showLoadMore, setShowLoadMore] = useState(true);
+
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const adverts = useSelector(selectAdverts);
   const total = useSelector(selectTotal);
 
   useEffect(() => {
-    dispatch(getAllAdverts({ page, limit: LIMIT }));
-  }, [dispatch, page]);
+    setShowLoadMore(true);
+
+    if (page >= Math.ceil(total / LIMIT)) {
+      setShowLoadMore(false);
+    }
+
+    dispatch(getTotal(searchParams));
+    dispatch(getAllAdverts({ page, limit: LIMIT, searchParams }));
+  }, [dispatch, page, total, searchParams]);
 
   const handleLoadMore = () => {
-    if (adverts.length >= total) {
+    if (page >= Math.ceil(total / LIMIT) || adverts.length < LIMIT) {
+      setShowLoadMore(false);
       return;
     }
+
+    setShowLoadMore(true);
     setPage((prev) => prev + 1);
   };
 
@@ -42,19 +57,26 @@ const Catalog = () => {
     <>
       <MainContainer>
         <CatalogContainer>
-          <FiltersForm />
+          <FiltersForm
+            setPage={setPage}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
 
-          <ListBtnWrap>
-            <AdvertsList>
-              {adverts.length > 0 &&
-                adverts.map((card) => (
+          <ListBtnWrap id="advertBlock">
+            {adverts.length > 0 ? (
+              <AdvertsList>
+                {adverts.map((card) => (
                   <CardItem key={card._id}>
                     <AdvertCard card={card} />
                   </CardItem>
                 ))}
-            </AdvertsList>
+              </AdvertsList>
+            ) : (
+              <NoItemsMsg>No items</NoItemsMsg>
+            )}
 
-            {adverts.length !== total && adverts.length > 0 && (
+            {showLoadMore && adverts.length > 0 && (
               <LoadMoreBtn type="button" onClick={handleLoadMore}>
                 Load more
               </LoadMoreBtn>

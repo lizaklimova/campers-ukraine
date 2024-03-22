@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon, LocationIcon, StarIcon } from "components/icons";
 import { MainContainer } from "layouts/MainContainer";
@@ -20,7 +20,15 @@ import {
   Title,
 } from "components/AdvertCard/AdvertCard.styled";
 
-const Modal = ({ card, isModalShown, closeModal, activeTab, setActiveTab }) => {
+const Modal = ({
+  card,
+  isModalShown,
+  closeModal,
+  activeTab,
+  setActiveTab,
+  clickToReviews,
+}) => {
+  const tabsRef = useRef();
   useEffect(() => {
     const handleESCClose = (e) => {
       if (e.code === "Escape") closeModal();
@@ -30,6 +38,15 @@ const Modal = ({ card, isModalShown, closeModal, activeTab, setActiveTab }) => {
 
     return () => window.removeEventListener("keydown", handleESCClose);
   }, [closeModal]);
+
+  useEffect(() => {
+    clickToReviews &&
+      tabsRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        duration: 1000,
+      });
+  }, [clickToReviews]);
 
   const handleBackdropClose = ({ target, currentTarget }) => {
     if (target === currentTarget) {
@@ -43,7 +60,7 @@ const Modal = ({ card, isModalShown, closeModal, activeTab, setActiveTab }) => {
       className={isModalShown ? "is-shown" : "is-hidden"}
       onClick={handleBackdropClose}
     >
-      <MainContainer name="modal" onClick={handleBackdropClose}>
+      <MainContainer onClick={handleBackdropClose}>
         <Window className={isModalShown ? "is-shown" : "is-hidden"}>
           <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
             <CloseIcon width={20} height={20} />
@@ -83,11 +100,13 @@ const Modal = ({ card, isModalShown, closeModal, activeTab, setActiveTab }) => {
 
             <ModalDescr>{card.description}</ModalDescr>
 
-            <Tabs
-              card={card}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-            />
+            <div ref={tabsRef}>
+              <Tabs
+                card={card}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            </div>
           </Content>
         </Window>
       </MainContainer>

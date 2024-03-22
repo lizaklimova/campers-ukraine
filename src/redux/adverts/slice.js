@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllAdverts } from "./operations";
+import { getAllAdverts, getTotal } from "./operations";
 
 const initialState = {
   adverts: [],
@@ -8,7 +8,7 @@ const initialState = {
   favorites:
     JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   isLoading: false,
-  error: null,
+  // error: null,
 };
 
 const advertsSlice = createSlice({
@@ -28,9 +28,14 @@ const advertsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
-        state.adverts = [...state.adverts, ...payload];
+        state.adverts = [...payload];
         state.isLoading = false;
-        state.error = null;
+        // state.error = null;
+      })
+      .addCase(getTotal.fulfilled, (state, { payload }) => {
+        state.total = payload.length;
+        state.isLoading = false;
+        // state.error = null;
       })
       .addMatcher(
         (action) => action.type.endsWith("/pending"),
@@ -41,7 +46,7 @@ const advertsSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith("/rejected"),
         (state, { payload }) => {
-          state.error = payload;
+          // state.error = payload;
           state.isLoading = false;
         }
       );

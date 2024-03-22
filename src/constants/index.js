@@ -47,27 +47,32 @@ export const TOASTER_CONFIG = { className: "themed_toaster", duration: 1500 };
 
 export const FILTERS_EQUIPMENT = [
   {
-    value: "ac",
+    name: "airConditioner",
+    value: "1",
     icon: PiWind,
     text: "AC",
   },
   {
+    name: "transmission",
     value: "automatic",
     icon: TransmissionIcon,
     text: "Automatic",
   },
   {
-    value: "kitchen",
+    name: "kitchen",
+    value: "1",
     icon: KitchenIcon,
     text: "Kitchen",
   },
   {
-    value: "tv",
+    name: "TV",
+    value: "1",
     icon: TVIcon,
     text: "TV",
   },
   {
-    value: "shower/wc",
+    name: "shower",
+    value: "1",
     icon: ShowerIcon,
     text: "Shower/WC",
   },
@@ -75,12 +80,12 @@ export const FILTERS_EQUIPMENT = [
 
 export const FILTERS_TYPE = [
   {
-    value: "van",
+    value: "panelTruck",
     icon: Van1Icon,
     text: "Van",
   },
   {
-    value: "fully integrated",
+    value: "fullyIntegrated",
     icon: Van2Icon,
     text: "Fully Integrated",
   },

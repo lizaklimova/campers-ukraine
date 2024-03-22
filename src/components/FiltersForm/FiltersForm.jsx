@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FILTERS_TYPE, FILTERS_EQUIPMENT } from "constants";
 import { LocationIcon } from "components/icons";
 import {
@@ -11,13 +12,32 @@ import {
   FieldSet,
   InputWrap,
 } from "./FiltersForm.styled";
+import { gerAllSearchParams, smoothScrollToTarget } from "helpers";
 
-const FiltersForm = () => {
+const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
+  const [location, setLocation] = useState("Ukraine");
+  const [filterParams, setFilterParams] = useState({});
+
+  const params = {};
+  gerAllSearchParams(searchParams, params);
+
+  const handleFilterAdverts = (e) => {
+    e.preventDefault();
+    setSearchParams({});
+    setPage(1);
+    setSearchParams({ ...filterParams, filter: location });
+    smoothScrollToTarget("advertBlock");
+  };
+
   return (
-    <FormFilters>
+    <FormFilters onSubmit={handleFilterAdverts}>
       <LabelLocation>
         Location
-        <input type="text" defaultValue="Kyiv, Ukraine" />
+        <input
+          type="text"
+          defaultValue="Ukraine, Kyiv"
+          onChange={({ target }) => setLocation(target.value)}
+        />
         <LocationIcon width={20} height={20} />
       </LabelLocation>
 
@@ -27,9 +47,27 @@ const FiltersForm = () => {
           Vehicle equipment
           <hr />
           <FieldSet>
-            {FILTERS_EQUIPMENT.map(({ value, icon: Icon, text }, i) => (
+            {FILTERS_EQUIPMENT.map(({ name, value, icon: Icon, text }, i) => (
               <InputWrap key={`${text}/${i}`}>
-                <input type="checkbox" name="equipment" value={value} />
+                <input
+                  type="checkbox"
+                  name={name}
+                  value={value}
+                  defaultChecked={params[name] === value}
+                  onChange={({ target }) => {
+                    if (target.checked) {
+                      setFilterParams((prev) => ({
+                        ...prev,
+                        [target.name]: target.value,
+                      }));
+                    } else {
+                      setFilterParams((prev) => {
+                        const { [target.name]: removedParam, ...rest } = prev;
+                        return { ...rest };
+                      });
+                    }
+                  }}
+                />
                 <CheckBox>
                   <Icon width={20} height={20} size={20} /> {text}
                 </CheckBox>
@@ -43,7 +81,18 @@ const FiltersForm = () => {
           <FieldSet>
             {FILTERS_TYPE.map(({ value, icon: Icon, text }, i) => (
               <InputWrap key={`${text}/${i}`}>
-                <input type="radio" name="type" value={value} />
+                <input
+                  type="radio"
+                  name="type"
+                  value={value}
+                  defaultChecked={params.form === value}
+                  onChange={({ target }) =>
+                    setFilterParams((prev) => ({
+                      ...prev,
+                      form: target.value,
+                    }))
+                  }
+                />
                 <RadioBtn>
                   <Icon width={20} height={20} /> {text}
                 </RadioBtn>

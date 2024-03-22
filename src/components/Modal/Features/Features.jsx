@@ -28,7 +28,19 @@ import {
 
 const Features = ({
   card: {
-    details,
+    airConditioner,
+    toilet,
+    kitchen,
+    microwave,
+    shower,
+    freezer,
+    TV,
+    hob,
+    CD,
+    beds,
+    radio,
+    gas,
+    water,
     adults,
     transmission,
     engine,
@@ -54,7 +66,7 @@ const Features = ({
           </li>
 
           {returnDetailsItem(
-            details.airConditioner,
+            airConditioner,
             "AC",
             <PiWind
               width={20}
@@ -69,69 +81,57 @@ const Features = ({
           </li>
 
           {returnDetailsItem(
-            details.kitchen,
+            kitchen,
             "kitchen",
             <KitchenIcon width={20} height={20} />
           )}
 
           <li>
             <BedIcon width={20} height={20} />
-            {`${details.beds} beds`}
+            {`${beds} beds`}
           </li>
 
           <li>
             <ConditionerIcon width={20} height={20} />
-            {`${details.airConditioner} air conditioner`}
+            {`${airConditioner} air conditioner`}
           </li>
 
+          {returnDetailsItem(CD, "CD", <CDIcon width={20} height={20} />)}
           {returnDetailsItem(
-            details.CD,
-            "CD",
-            <CDIcon width={20} height={20} />
-          )}
-          {returnDetailsItem(
-            details.radio,
+            radio,
             "Radio",
             <RadioIcon width={20} height={20} />
           )}
+          {returnDetailsItem(TV, "TV", <TVIcon width={20} height={20} />)}
           {returnDetailsItem(
-            details.TV,
-            "TV",
-            <TVIcon width={20} height={20} />
-          )}
-          {returnDetailsItem(
-            details.hob,
-            `${details.hob} hob`,
+            hob,
+            `${hob} hob`,
             <HobIcon width={20} height={20} />
           )}
           {returnDetailsItem(
-            details.shower,
-            `${details.shower} shower`,
+            shower,
+            `${shower} shower`,
             <ShowerIcon width={20} height={20} />
           )}
           {returnDetailsItem(
-            details.freezer,
-            `${details.freezer} freezer`,
+            freezer,
+            `${freezer} freezer`,
             <FreezerIcon width={20} height={20} />
           )}
           {returnDetailsItem(
-            details.toilet,
-            `${details.toilet} toilet`,
+            toilet,
+            `${toilet} toilet`,
             <ToiletIcon width={20} height={20} />
           )}
           {returnDetailsItem(
-            details.microwave,
-            `${details.microwave} microwave`,
+            microwave,
+            `${microwave} microwave`,
             <MicrowaveIcon width={20} height={20} />
           )}
+          {returnDetailsItem(gas, gas, <GasIcon width={20} height={20} />)}
           {returnDetailsItem(
-            details.gas,
-            details.gas,
-            <GasIcon width={20} height={20} />
-          )}
-          {returnDetailsItem(
-            details.water,
-            details.water,
+            water,
+            water,
             <WaterIcon width={20} height={20} />
           )}
         </DetailsList>
@@ -143,7 +143,11 @@ const Features = ({
         <VehicleDetailsList>
           <li className="capitalize">
             <p>Form</p>
-            <p>{form}</p>
+            <p>
+              {form === "alcove"
+                ? form
+                : `${form.slice(0, 5)} ${form.slice(5)}`}
+            </p>
           </li>
 
           <li>

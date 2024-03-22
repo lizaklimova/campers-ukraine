@@ -29,11 +29,11 @@ import {
   ShowBtn,
   AddToFavBtn,
 } from "./AdvertCard.styled";
-import { smoothScrollToTarget } from "helpers";
 
 const AdvertCard = ({ card }) => {
   const [isModalShown, setIsModalShown] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
+  const [clickToReviews, setClickToReviews] = useState(false);
 
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
@@ -82,8 +82,9 @@ const AdvertCard = ({ card }) => {
               aria-label="Open reviews"
               onClick={() => {
                 setIsModalShown(true);
+                document.body.style.overflow = "hidden";
                 setActiveTab("reviews");
-                smoothScrollToTarget("reviewsBlock");
+                setClickToReviews(true);
               }}
             >
               {`${card.rating}(${card.reviews.length} Reviews)`}
@@ -114,7 +115,7 @@ const AdvertCard = ({ card }) => {
             {card.engine}
           </li>
 
-          {card.details.kitchen >= 1 && (
+          {card.kitchen >= 1 && (
             <li>
               <KitchenIcon width={20} height={20} />
               Kitchen
@@ -123,10 +124,10 @@ const AdvertCard = ({ card }) => {
 
           <li>
             <BedIcon width={20} height={20} />
-            {card.details.beds} beds
+            {card.beds} beds
           </li>
 
-          {card.details.airConditioner >= 1 && (
+          {card.airConditioner >= 1 && (
             <li>
               <PiWind size={20} style={{ fill: "var(--text-color)" }} />
               AC
@@ -153,6 +154,7 @@ const AdvertCard = ({ card }) => {
           closeModal={() => setIsModalShown(false)}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          clickToReviews={clickToReviews}
         />
       )}
     </>

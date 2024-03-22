@@ -17,6 +17,7 @@ const commonRadioCheckbox = css`
   border: 1px solid var(--border-color);
   padding: 10px;
   color: var(--text-color);
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -43,6 +44,7 @@ export const FormFilters = styled.form`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-top: 30px;
 `;
 
 export const LabelLocation = styled.label`
@@ -124,6 +126,7 @@ export const InputWrap = styled.div`
     padding: 15px;
     position: absolute;
     opacity: 0;
+    cursor: pointer;
 
     &:checked + div {
       border-color: var(--accent-red);
