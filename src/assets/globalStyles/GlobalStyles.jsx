@@ -31,7 +31,7 @@ body {
     font-size: 14px;
     line-height: 1.5;
     color: var(--text-color);
-    background-color: var(--background);
+    background-color: var(--white);
     margin: 0;
 }
 
@@ -78,12 +78,20 @@ button {
   cursor: pointer;
 }
 
-input {
+input, textarea {
   font-family: inherit;
 
   &:focus {
     outline: none;
   }
+}
+
+.themed_toaster {
+  border: 1px solid var(--accent-red);
+  background-color: var(--background);
+  color: var(--text-color);
+  text-align: center;
+  filter: drop-shadow(1px 1px 7px var(--border-color));
 }
 `;
 

@@ -20,7 +20,7 @@ import {
 } from "components/icons";
 import { DetailsList } from "components/AdvertCard/AdvertCard.styled";
 import {
-  FeatureWrap,
+  FeatureReviewsWrap,
   DetailsItemsWrap,
   VehicleDetailsWrap,
   VehicleDetailsList,
@@ -41,7 +41,7 @@ const Features = ({
   },
 }) => {
   return (
-    <FeatureWrap>
+    <FeatureReviewsWrap>
       <DetailsItemsWrap>
         <DetailsList>
           <li>
@@ -172,7 +172,7 @@ const Features = ({
           </li>
         </VehicleDetailsList>
       </VehicleDetailsWrap>
-    </FeatureWrap>
+    </FeatureReviewsWrap>
   );
 };
 

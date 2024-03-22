@@ -32,7 +32,6 @@ export const Window = styled.div`
   border-radius: 20px;
   padding: 40px 20px;
   background-color: var(--white);
-  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow-y: auto;
 
   &::-webkit-scrollbar {

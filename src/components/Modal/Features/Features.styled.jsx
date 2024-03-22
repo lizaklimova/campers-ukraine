@@ -1,17 +1,29 @@
 import styled from "styled-components";
 
-export const FeatureWrap = styled.div`
+export const FeatureReviewsWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 30px 0;
 
   @media screen and (min-width: 768px) {
     width: 50%;
+    max-height: 575px;
+    overflow-y: auto;
+    padding-right: 15px;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin-top: 30px;
+    }
   }
 `;
 
 export const DetailsItemsWrap = styled.div`
-  padding: 40px 0;
+  padding-bottom: 40px;
 `;
 
 export const VehicleDetailsWrap = styled.div`

@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/adverts/slice";
 import { PiWind } from "react-icons/pi";
@@ -29,12 +29,12 @@ import {
   ShowBtn,
   AddToFavBtn,
 } from "./AdvertCard.styled";
+import { smoothScrollToTarget } from "helpers";
 
 const AdvertCard = ({ card }) => {
   const [isModalShown, setIsModalShown] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
 
-  const reviewsRef = useRef();
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
@@ -42,16 +42,6 @@ const AdvertCard = ({ card }) => {
     () => favorites.find((fav) => fav._id === card._id),
     [favorites, card._id]
   );
-
-  const scrollToReviews = () => {
-    console.log(reviewsRef);
-    if (reviewsRef.current) {
-      reviewsRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
 
   return (
     <>
@@ -82,16 +72,22 @@ const AdvertCard = ({ card }) => {
 
         <RatingLocationWrap>
           <RatingWrap>
-            <StarIcon width={20} height={20} />
+            <StarIcon
+              width={20}
+              height={20}
+              fillColor={"var(--accent-orange)"}
+            />
             <button
               type="button"
               aria-label="Open reviews"
               onClick={() => {
                 setIsModalShown(true);
                 setActiveTab("reviews");
-                scrollToReviews();
+                smoothScrollToTarget("reviewsBlock");
               }}
-            >{`${card.rating}(${card.reviews.length} Reviews)`}</button>
+            >
+              {`${card.rating}(${card.reviews.length} Reviews)`}
+            </button>
           </RatingWrap>
 
           <LocationWrap>
@@ -157,7 +153,6 @@ const AdvertCard = ({ card }) => {
           closeModal={() => setIsModalShown(false)}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
-          ref={reviewsRef}
         />
       )}
     </>

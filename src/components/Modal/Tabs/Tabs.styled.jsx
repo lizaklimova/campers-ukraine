@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const TabsWrap = styled.div`
   hr {
+    opacity: 0.3;
     background-color: var(--border-color);
   }
 `;
@@ -28,7 +29,7 @@ export const TabsList = styled.ul`
 
     &.active::after {
       position: absolute;
-      top: 31px;
+      top: 30.5px;
       display: block;
       content: "";
       width: 100%;

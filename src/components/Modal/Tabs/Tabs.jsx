@@ -1,10 +1,11 @@
 import { TabsWrap, TabsList, RenderBlock } from "./Tabs.styled";
 import Features from "../Features";
 import BookForm from "../BookForm";
+import Reviews from "../Reviews";
 
 const Tabs = ({ card, activeTab, setActiveTab }) => {
   return (
-    <TabsWrap>
+    <TabsWrap id="reviewsBlock">
       <TabsList>
         <li>
           <button
@@ -38,7 +39,8 @@ const Tabs = ({ card, activeTab, setActiveTab }) => {
         </RenderBlock>
       ) : (
         <RenderBlock>
-          <div>Hello</div>
+          <Reviews card={card} />
+          <BookForm />
         </RenderBlock>
       )}
     </TabsWrap>

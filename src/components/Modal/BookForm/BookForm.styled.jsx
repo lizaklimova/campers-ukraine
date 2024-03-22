@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const commonInputStyles = css`
+export const commonInputStyles = css`
   width: 100%;
   padding: 18px;
   background-color: var(--input-background);
@@ -10,12 +10,13 @@ const commonInputStyles = css`
   line-height: 1.25;
   border-radius: 10px;
   border: none;
+  opacity: 0.7;
 
-  transition: outline var(--linear-transition);
+  transition: opacity var(--linear-transition);
 
   &:hover,
   &:focus {
-    outline: 1px solid var(--text-color);
+    opacity: 1;
   }
 
   &::placeholder {
@@ -32,7 +33,7 @@ export const Form = styled.form`
   border-radius: 10px;
   border: 1px solid var(--border-color);
   padding: 24px;
-  margin-top: 40px;
+  margin-top: 30px;
 
   @media screen and (min-width: 768px) {
     width: 50%;

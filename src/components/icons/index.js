@@ -18,6 +18,9 @@ import FreezerIcon from "./FreezerIcon";
 import GasIcon from "./GasIcon";
 import WaterIcon from "./WaterIcon";
 import MicrowaveIcon from "./MicrowaveIcon";
+import Van1Icon from "./Van1Icon";
+import Van2Icon from "./Van2Icon";
+import Van3Icon from "./Van3Icon";
 
 export {
   AdultsIcon,
@@ -40,4 +43,7 @@ export {
   GasIcon,
   WaterIcon,
   MicrowaveIcon,
+  Van1Icon,
+  Van2Icon,
+  Van3Icon,
 };

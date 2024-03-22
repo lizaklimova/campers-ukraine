@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
 import { Formik } from "formik";
+import toast from "react-hot-toast";
+import { bookVan } from "../../../redux/adverts/slice";
+import { formatDate } from "helpers";
 import bookVanSchema from "schemas";
 import { FORM_INIT_VALUES } from "constants";
 import Calendar from "./Calendar";
@@ -10,13 +14,16 @@ import {
   SubmitBtn,
   TitleBlock,
 } from "./BookForm.styled";
+import { TOASTER_CONFIG } from "constants";
 
 const BookForm = () => {
-  const handleFormSubmit = async ({ name, email, date, comment }) => {
+  const dispatch = useDispatch();
+
+  const handleFormSubmit = async ({ name, email, date, comment }, actions) => {
     const formData = {
       name,
       email,
-      date,
+      date: formatDate(date),
       comment,
     };
 
@@ -26,7 +33,10 @@ const BookForm = () => {
       return;
     }
 
-    console.log(formData);
+    dispatch(bookVan(formData));
+    toast("Successfully sent!", TOASTER_CONFIG);
+
+    setTimeout(() => window.location.reload(), 700);
   };
 
   return (

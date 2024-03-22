@@ -13,8 +13,12 @@ import AdvertCard from "components/AdvertCard";
 import {
   AdvertsList,
   CardItem,
+  ListBtnWrap,
   LoadMoreBtn,
 } from "components/AdvertCard/AdvertCard.styled";
+import "../helpers/formatDate";
+import FiltersForm from "components/FiltersForm/FiltersForm";
+import { CatalogContainer } from "components/FiltersForm/FiltersForm.styled";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
@@ -34,25 +38,32 @@ const Catalog = () => {
     setPage((prev) => prev + 1);
   };
 
-  return isLoading ? (
-    <Loader />
-  ) : (
-    <MainContainer>
-      <AdvertsList>
-        {adverts.length > 0 &&
-          adverts.map((card, i) => (
-            <CardItem key={card._id}>
-              <AdvertCard card={card} />
-            </CardItem>
-          ))}
-      </AdvertsList>
+  return (
+    <>
+      <MainContainer>
+        <CatalogContainer>
+          <FiltersForm />
 
-      {adverts.length !== total && adverts.length > 0 && (
-        <LoadMoreBtn type="button" onClick={handleLoadMore}>
-          Load more
-        </LoadMoreBtn>
-      )}
-    </MainContainer>
+          <ListBtnWrap>
+            <AdvertsList>
+              {adverts.length > 0 &&
+                adverts.map((card) => (
+                  <CardItem key={card._id}>
+                    <AdvertCard card={card} />
+                  </CardItem>
+                ))}
+            </AdvertsList>
+
+            {adverts.length !== total && adverts.length > 0 && (
+              <LoadMoreBtn type="button" onClick={handleLoadMore}>
+                Load more
+              </LoadMoreBtn>
+            )}
+          </ListBtnWrap>
+        </CatalogContainer>
+      </MainContainer>
+      {isLoading && <Loader />}
+    </>
   );
 };
 

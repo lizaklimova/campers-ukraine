@@ -4,6 +4,7 @@ import { getAllAdverts } from "./operations";
 const initialState = {
   adverts: [],
   total: 13,
+  bookings: [],
   favorites:
     JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   isLoading: false,
@@ -19,6 +20,9 @@ const advertsSlice = createSlice({
     },
     removeFromFavorites: (state, { payload }) => {
       state.favorites = state.favorites.filter((card) => card._id !== payload);
+    },
+    bookVan: (state, { payload }) => {
+      state.bookings.push(payload);
     },
   },
   extraReducers: (builder) => {
@@ -45,4 +49,5 @@ const advertsSlice = createSlice({
 });
 
 export const advertsReducer = advertsSlice.reducer;
-export const { addToFavorites, removeFromFavorites } = advertsSlice.actions;
+export const { addToFavorites, removeFromFavorites, bookVan } =
+  advertsSlice.actions;

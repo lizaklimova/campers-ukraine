@@ -15,11 +15,48 @@ const FlexAlign = css`
   align-items: center;
 `;
 
+export const RedButtonStyles = css`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.08px;
+  max-width: 140px;
+  border-radius: 200px;
+  padding: 16px 0;
+  background-color: var(--accent-red);
+  color: var(--white);
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    max-width: 166px;
+    min-height: 56px;
+    transition: background-color var(--linear-transition);
+
+    &:hover,
+    &:focus {
+      background-color: var(--red-hover);
+    }
+  }
+`;
+
+export const ListBtnWrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    gap: 50px;
+  }
+`;
+
 export const AdvertsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin: 50px 0;
+
+  @media screen and (min-width: 1440px) {
+    width: 95%;
+    margin-left: auto;
+  }
 `;
 
 export const CardItem = styled.li`
@@ -40,9 +77,7 @@ export const CardItem = styled.li`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 80%;
     padding: 24px;
-    margin: 0 auto;
   }
 `;
 
@@ -88,6 +123,7 @@ export const TitlePriceWrap = styled.div`
 
 export const Title = styled.p`
   ${TitlesStyles}
+  margin-bottom: 5px;
 `;
 
 export const PriceWrap = styled.div`
@@ -187,26 +223,7 @@ export const DetailsList = styled.ul`
 `;
 
 export const ShowBtn = styled.button`
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.08px;
-  max-width: 140px;
-  border-radius: 200px;
-  padding: 16px 0;
-  background-color: var(--accent-red);
-  color: var(--white);
-
-  @media screen and (min-width: 1440px) {
-    font-size: 16px;
-    max-width: 166px;
-    min-height: 56px;
-    transition: background-color var(--linear-transition);
-
-    &:hover,
-    &:focus {
-      background-color: var(--red-hover);
-    }
-  }
+  ${RedButtonStyles}
 `;
 
 export const LoadMoreBtn = styled.button`
@@ -214,7 +231,7 @@ export const LoadMoreBtn = styled.button`
   border-radius: 200px;
   border: 1px solid var(--border-color);
   padding: 16px 32px;
-  margin: 0 auto 30px auto;
+  margin: 30px auto;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.08px;

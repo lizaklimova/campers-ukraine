@@ -1,7 +1,8 @@
 import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import useTheme from "hooks/useTheme";
+import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "styled-components";
+import useTheme from "hooks/useTheme";
 import GlobalStyles from "assets/globalStyles";
 import SharedHeader from "layouts/SharedHeader";
 
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
+      <Toaster position="top-center" />
 
       <Routes>
         <Route path="/" element={<SharedHeader />}>

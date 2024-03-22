@@ -6,6 +6,7 @@ export const HeaderBlock = styled.header`
   top: 0;
   right: 0;
   left: 0;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,5 +60,12 @@ export const NavigLink = styled(NavLink)`
     height: 5px;
     border-radius: 15px;
     background-color: var(--accent-red);
+  }
+
+  @media screen and (min-width: 768px) {
+    svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 `;

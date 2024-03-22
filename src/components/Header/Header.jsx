@@ -15,7 +15,7 @@ const Header = () => {
           <ul>
             <li>
               <NavigLink to="/">
-                <FcHome size={40} />
+                <FcHome size={30} />
               </NavigLink>
             </li>
             <li>
@@ -24,7 +24,7 @@ const Header = () => {
             <li>
               <NavigLink id="favs" to="/favorites">
                 {favorites.length > 0 && <div>{favorites.length}</div>}
-                <FavIcon width={40} height={40} />
+                <FavIcon width={30} height={30} />
               </NavigLink>
             </li>
           </ul>

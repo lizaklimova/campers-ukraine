@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon, LocationIcon, StarIcon } from "components/icons";
 import { MainContainer } from "layouts/MainContainer";
@@ -20,8 +20,7 @@ import {
   Title,
 } from "components/AdvertCard/AdvertCard.styled";
 
-const Modal = forwardRef(function Modal(props, ref) {
-  const { card, isModalShown, closeModal, activeTab, setActiveTab } = props;
+const Modal = ({ card, isModalShown, closeModal, activeTab, setActiveTab }) => {
   useEffect(() => {
     const handleESCClose = (e) => {
       if (e.code === "Escape") closeModal();
@@ -44,7 +43,7 @@ const Modal = forwardRef(function Modal(props, ref) {
       className={isModalShown ? "is-shown" : "is-hidden"}
       onClick={handleBackdropClose}
     >
-      <MainContainer onClick={handleBackdropClose}>
+      <MainContainer name="modal" onClick={handleBackdropClose}>
         <Window className={isModalShown ? "is-shown" : "is-hidden"}>
           <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
             <CloseIcon width={20} height={20} />
@@ -56,7 +55,11 @@ const Modal = forwardRef(function Modal(props, ref) {
 
               <RatingLocationWrap id="rating-wrap">
                 <RatingWrap>
-                  <StarIcon width={20} height={20} />
+                  <StarIcon
+                    width={20}
+                    height={20}
+                    fillColor={"var(--accent-orange)"}
+                  />
                   <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
                 </RatingWrap>
 
@@ -80,19 +83,17 @@ const Modal = forwardRef(function Modal(props, ref) {
 
             <ModalDescr>{card.description}</ModalDescr>
 
-            <div ref={ref}>
-              <Tabs
-                card={card}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
-            </div>
+            <Tabs
+              card={card}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
           </Content>
         </Window>
       </MainContainer>
     </Backdrop>,
     document.getElementById("modal-root")
   );
-});
+};
 
 export default Modal;
