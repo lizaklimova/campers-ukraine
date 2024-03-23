@@ -1,6 +1,6 @@
 # Campers in Ukraine
 
-Campers in Ukraine is a user-friendly website designed to help users explore and book available campers for rent across Ukraine. With our platform, users can easily browse through a variety of camper options, add favorites, and utilize advanced filtering options based on equipment, location, and type of van.
+Campers in Ukraine is a user-friendly website designed to help users explore and book available campers for rent across Ukraine. With this platform, users can easily browse through a variety of camper options, add favorites, and utilize advanced filtering options based on equipment, location, and type of van.
 
 ![Preview](https://images.unsplash.com/photo-1515876305430-f06edab8282a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
@@ -18,12 +18,8 @@ Campers in Ukraine is a user-friendly website designed to help users explore and
 
 ### 3. Advanced Filtering
 
-- Our platform offers advanced filtering options to help users find the perfect camper.
-- Filters include equipment (e.g., kitchen facilities, sleeping capacity), location, and type of van (e.g., RV, camper van, trailer).
-
-### 4. User-friendly Interface
-
-- The website features an intuitive and visually appealing interface for seamless navigation and booking.
+- The platform offers advanced filtering options to help users find the perfect camper.
+- Filters include equipment (e.g., kitchen facilities, sleeping capacity), location, and type of van (e.g., fully integrated, camper van, alcove).
 
 ## How to Use
 
