@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
+const MainContainer = styled.div`
   width: 100%;
   padding: 0 16px;
   margin: 0 auto;
@@ -17,3 +17,5 @@ export const MainContainer = styled.div`
     max-width: 1272px;
   }
 `;
+
+export default MainContainer;

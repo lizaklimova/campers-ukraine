@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { lightTheme, darkTheme } from "assets/theme";
-import { ThemeContext } from "contexts/ThemeContext";
+import { ThemeContext } from "contexts";
 
 const useTheme = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

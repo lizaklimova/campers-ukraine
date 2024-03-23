@@ -11,7 +11,7 @@ import {
 } from "../redux/adverts/selectors";
 import { LIMIT } from "constants";
 import { smoothScrollToTarget } from "helpers";
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import FiltersForm from "components/FiltersForm";
 import Loader from "components/Loader";
 import AdvertCard from "components/AdvertCard";
@@ -60,6 +60,11 @@ const Catalog = () => {
     smoothScrollToTarget("goBack");
   };
 
+  const handleGoToPrevPage = () => {
+    setPage((prev) => prev - 1);
+    smoothScrollToTarget("advertBlock");
+  };
+
   return (
     <>
       <MainContainer>
@@ -74,12 +79,9 @@ const Catalog = () => {
             <GoToPrevPageBtn
               id="goBack"
               type="button"
-              onClick={() => {
-                setPage((prev) => prev - 1);
-                smoothScrollToTarget("advertBlock");
-              }}
+              onClick={handleGoToPrevPage}
             >
-              <FaArrowLeft size={20} fill="var(--accent-color)" />
+              <FaArrowLeft size={20} fill="var(--text-color)" />
               Go back
             </GoToPrevPageBtn>
           )}

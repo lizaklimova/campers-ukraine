@@ -15,7 +15,6 @@
     "formik": "^2.4.5",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
-    "react-animated-modal": "^1.1.1",
     "react-datepicker": "^6.5.0",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.11.2",

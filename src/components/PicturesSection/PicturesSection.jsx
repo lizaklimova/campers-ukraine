@@ -1,4 +1,4 @@
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import CamperSea from "assets/pictures/capmer-sea.jpg";
 import CamperForest from "assets/pictures/camper-forest.jpg";
 import CamperMountains from "assets/pictures/camper-mountains.jpg";

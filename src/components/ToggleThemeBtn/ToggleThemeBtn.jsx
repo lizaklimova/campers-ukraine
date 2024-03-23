@@ -11,9 +11,9 @@ const ToggleThemeBtn = () => {
     <ButtonWrap>
       <IconButton onClick={toggleTheme}>
         {theme === "dark" ? (
-          <PiMoonStarsThin size={20} fill="var(--text-color)" />
+          <PiMoonStarsThin size={20} fill="var(--background)" />
         ) : (
-          <GoSun size={20} fill="var(--text-color)" />
+          <GoSun size={20} fill="var(--background)" />
         )}
       </IconButton>
     </ButtonWrap>

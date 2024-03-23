@@ -6,8 +6,6 @@ export const ReviewersList = styled.ul`
   gap: 30px;
 `;
 
-export const Reviewer = styled.li``;
-
 export const ReviewHead = styled.div`
   display: flex;
   align-items: center;

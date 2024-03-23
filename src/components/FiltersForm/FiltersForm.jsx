@@ -41,6 +41,34 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
     dropdownRef.current?.clearAll();
     setSearchParams({});
     setFilterParams({});
+    setPage(1);
+  };
+
+  const selectLocation = (arr) => {
+    if (arr.length > 0) {
+      setFilterParams((prev) => ({ ...prev, location: arr[0].value }));
+    }
+  };
+
+  const selectEquipment = ({ target }) => {
+    if (target.checked) {
+      setFilterParams((prev) => ({
+        ...prev,
+        [target.name]: target.value,
+      }));
+    } else {
+      setFilterParams((prev) => {
+        const { [target.name]: removedParam, ...rest } = prev;
+        return { ...rest };
+      });
+    }
+  };
+
+  const selectVehicleType = ({ target }) => {
+    setFilterParams((prev) => ({
+      ...prev,
+      form: target.value,
+    }));
   };
 
   return (
@@ -51,11 +79,7 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
           ref={dropdownRef}
           placeholder="Location"
           options={LOCATION_OPTIONS}
-          onChange={(arr) => {
-            if (arr.length > 0) {
-              setFilterParams((prev) => ({ ...prev, location: arr[0].value }));
-            }
-          }}
+          onChange={selectLocation}
           closeOnScroll={true}
           color="var(--accent-red)"
         />
@@ -74,19 +98,7 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
                   type="checkbox"
                   name={name}
                   value={value}
-                  onChange={({ target }) => {
-                    if (target.checked) {
-                      setFilterParams((prev) => ({
-                        ...prev,
-                        [target.name]: target.value,
-                      }));
-                    } else {
-                      setFilterParams((prev) => {
-                        const { [target.name]: removedParam, ...rest } = prev;
-                        return { ...rest };
-                      });
-                    }
-                  }}
+                  onChange={selectEquipment}
                 />
                 <CheckBox>
                   <Icon width={20} height={20} size={20} /> {text}
@@ -105,12 +117,7 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
                   type="radio"
                   name="type"
                   value={value}
-                  onChange={({ target }) =>
-                    setFilterParams((prev) => ({
-                      ...prev,
-                      form: target.value,
-                    }))
-                  }
+                  onChange={selectVehicleType}
                 />
                 <RadioBtn>
                   <Icon width={20} height={20} /> {text}

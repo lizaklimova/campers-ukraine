@@ -4,7 +4,6 @@ import {
   Comment,
   NameRatingWrap,
   ReviewHead,
-  Reviewer,
   ReviewersList,
   StarsList,
 } from "./Reviews.styled";
@@ -15,7 +14,7 @@ const Reviews = ({ card }) => {
     <FeatureReviewsWrap>
       <ReviewersList>
         {card.reviews.map(({ reviewer_name, reviewer_rating, comment }, i) => (
-          <Reviewer key={`${reviewer_name}/${i}`}>
+          <li key={`${reviewer_name}/${i}`}>
             <ReviewHead>
               <Avatar>{reviewer_name.slice(0, 1)}</Avatar>
               <NameRatingWrap>
@@ -40,7 +39,7 @@ const Reviews = ({ card }) => {
               </NameRatingWrap>
             </ReviewHead>
             <Comment>{comment}</Comment>
-          </Reviewer>
+          </li>
         ))}
       </ReviewersList>
     </FeatureReviewsWrap>

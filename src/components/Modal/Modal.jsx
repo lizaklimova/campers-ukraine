@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon, LocationIcon, StarIcon } from "components/icons";
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import Tabs from "./Tabs";
 import {
   Backdrop,
@@ -22,7 +22,6 @@ import {
 
 const Modal = ({
   card,
-  isModalShown,
   closeModal,
   activeTab,
   setActiveTab,

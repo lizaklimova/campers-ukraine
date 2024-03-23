@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import toast from "react-hot-toast";
 import { bookVan } from "../../../redux/adverts/slice";
+import { TOASTER_CONFIG } from "constants";
 import { formatDate } from "helpers";
 import bookVanSchema from "schemas";
 import { FORM_INIT_VALUES } from "constants";
@@ -14,7 +15,6 @@ import {
   SubmitBtn,
   TitleBlock,
 } from "./BookForm.styled";
-import { TOASTER_CONFIG } from "constants";
 
 const BookForm = () => {
   const dispatch = useDispatch();

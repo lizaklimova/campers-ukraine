@@ -13,7 +13,6 @@ export const Backdrop = styled.div`
   justify-content: center;
   z-index: 5;
   background-color: var(--backdrop);
-  transition: all var(--cubic-transition);
 `;
 
 export const Window = styled.div`

@@ -56,6 +56,7 @@ export const GoToPrevPageBtn = styled.button`
   font-weight: 500;
   margin-bottom: -50px;
   align-self: flex-start;
+  color: var(--text-color);
 `;
 
 export const LabelLocation = styled.label`

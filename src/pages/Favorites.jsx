@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { GrCatalog } from "react-icons/gr";
 import { selectFavorites } from "../redux/adverts/selectors";
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import AdvertCard from "components/AdvertCard";
 import {
   AdvertsList,

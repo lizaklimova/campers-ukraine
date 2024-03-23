@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { FcHome } from "react-icons/fc";
 import { selectFavorites } from "../../redux/adverts/selectors";
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import FavIcon from "components/icons/FavIcon";
 import { HeaderBlock, Nav, NavigLink } from "./Header.styled";
 

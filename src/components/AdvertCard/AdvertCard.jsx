@@ -43,6 +43,25 @@ const AdvertCard = ({ card }) => {
     [favorites, card._id]
   );
 
+  const openReviews = () => {
+    setIsModalShown(true);
+    document.body.style.overflow = "hidden";
+    setActiveTab("reviews");
+    setClickToReviews(true);
+  };
+
+  const openAdvertsModal = () => {
+    setClickToReviews(false);
+    setIsModalShown(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const addAdvertToFavorites = () => {
+    isCardFavorite
+      ? dispatch(removeFromFavorites(card._id))
+      : dispatch(addToFavorites(card));
+  };
+
   return (
     <>
       <VanPic>
@@ -58,11 +77,7 @@ const AdvertCard = ({ card }) => {
             <AddToFavBtn
               type="button"
               aria-label="Add to favorites"
-              onClick={() =>
-                isCardFavorite
-                  ? dispatch(removeFromFavorites(card._id))
-                  : dispatch(addToFavorites(card))
-              }
+              onClick={addAdvertToFavorites}
               $isFavorite={!!isCardFavorite}
             >
               <FavIcon width={20} height={20} />
@@ -80,12 +95,7 @@ const AdvertCard = ({ card }) => {
             <button
               type="button"
               aria-label="Open reviews"
-              onClick={() => {
-                setIsModalShown(true);
-                document.body.style.overflow = "hidden";
-                setActiveTab("reviews");
-                setClickToReviews(true);
-              }}
+              onClick={openReviews}
             >
               {`${card.rating}(${card.reviews.length} Reviews)`}
             </button>
@@ -138,10 +148,7 @@ const AdvertCard = ({ card }) => {
         <ShowBtn
           type="button"
           aria-label="Show more details"
-          onClick={() => {
-            setIsModalShown(true);
-            document.body.style.overflow = "hidden";
-          }}
+          onClick={openAdvertsModal}
         >
           Show more
         </ShowBtn>
@@ -150,7 +157,6 @@ const AdvertCard = ({ card }) => {
       {isModalShown && (
         <Modal
           card={card}
-          isModalShown={isModalShown}
           closeModal={() => setIsModalShown(false)}
           activeTab={activeTab}
           setActiveTab={setActiveTab}

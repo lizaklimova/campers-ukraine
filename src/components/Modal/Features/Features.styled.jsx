@@ -8,7 +8,7 @@ export const FeatureReviewsWrap = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 50%;
-    max-height: 575px;
+    max-height: 580px;
     overflow-y: auto;
     padding-right: 15px;
 

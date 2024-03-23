@@ -1,4 +1,4 @@
-import { MainContainer } from "layouts/MainContainer";
+import MainContainer from "layouts/MainContainer";
 import { HeroTitle, HeroSection, ImgWrap } from "./Hero.styled";
 import "animate.css/animate.min.css";
 
