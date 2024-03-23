@@ -56,7 +56,7 @@ const Modal = ({
 
   return createPortal(
     <Backdrop onClick={handleBackdropClose}>
-      <MainContainer>
+      <MainContainer onClick={handleBackdropClose}>
         <Window>
           <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
             <CloseIcon width={20} height={20} />
