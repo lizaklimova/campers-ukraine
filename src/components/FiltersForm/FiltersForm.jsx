@@ -40,6 +40,7 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
 
     dropdownRef.current?.clearAll();
     setSearchParams({});
+    setFilterParams({});
   };
 
   return (

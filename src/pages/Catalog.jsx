@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import { getAllAdverts, getTotal } from "../redux/adverts/operations";
 import {
   selectAdverts,
@@ -9,7 +10,9 @@ import {
   selectTotal,
 } from "../redux/adverts/selectors";
 import { LIMIT } from "constants";
+import { smoothScrollToTarget } from "helpers";
 import { MainContainer } from "layouts/MainContainer";
+import FiltersForm from "components/FiltersForm";
 import Loader from "components/Loader";
 import AdvertCard from "components/AdvertCard";
 import {
@@ -19,10 +22,10 @@ import {
   LoadMoreBtn,
   NoItemsMsg,
 } from "components/AdvertCard/AdvertCard.styled";
-import "../helpers/formatDate";
-import FiltersForm from "components/FiltersForm/FiltersForm";
-import { CatalogContainer } from "components/FiltersForm/FiltersForm.styled";
-import { smoothScrollToTarget } from "helpers";
+import {
+  CatalogContainer,
+  GoToPrevPageBtn,
+} from "components/FiltersForm/FiltersForm.styled";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
@@ -54,7 +57,7 @@ const Catalog = () => {
 
     setShowLoadMore(true);
     setPage((prev) => prev + 1);
-    smoothScrollToTarget("advertBlock");
+    smoothScrollToTarget("goBack");
   };
 
   return (
@@ -66,6 +69,20 @@ const Catalog = () => {
             searchParams={searchParams}
             setSearchParams={setSearchParams}
           />
+
+          {page > 1 && (
+            <GoToPrevPageBtn
+              id="goBack"
+              type="button"
+              onClick={() => {
+                setPage((prev) => prev - 1);
+                smoothScrollToTarget("advertBlock");
+              }}
+            >
+              <FaArrowLeft size={20} fill="var(--accent-color)" />
+              Go back
+            </GoToPrevPageBtn>
+          )}
 
           <ListBtnWrap id="advertBlock">
             {adverts.length < 0 || error === "Not found" ? (

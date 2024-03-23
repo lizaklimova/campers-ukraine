@@ -47,6 +47,17 @@ export const FormFilters = styled.form`
   margin-top: 30px;
 `;
 
+export const GoToPrevPageBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: -50px;
+  align-self: flex-start;
+`;
+
 export const LabelLocation = styled.label`
   position: relative;
   display: flex;

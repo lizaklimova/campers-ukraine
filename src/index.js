@@ -6,21 +6,20 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
 import { ThemeProvider } from "contexts/ThemeContext.jsx";
 import App from "components/App";
-import "assets/i18n/i18n";
 import "modern-normalize";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter basename="/campers-ukraine">
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/campers-ukraine">
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
 );
