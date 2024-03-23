@@ -33,19 +33,26 @@ export const NavigLink = styled(NavLink)`
   }
 
   &#favs div {
-    font-size: 16px;
+    font-size: 12px;
     position: absolute;
-    top: 0;
-    right: -5px;
+    top: 5px;
+    right: -3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 23px;
-    height: 23px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     padding: 5px;
     background-color: var(--accent-red);
     color: var(--white);
+
+    @media screen and (min-width: 768px) {
+      top: -3px;
+      font-size: 16px;
+      width: 23px;
+      height: 23px;
+    }
   }
 
   #fav-icon {
