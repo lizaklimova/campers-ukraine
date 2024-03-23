@@ -8,6 +8,8 @@ export const Backdrop = styled.div`
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  opacity: 0;
+  visibility: hidden;
   z-index: 5;
   background-color: var(--backdrop);
   display: flex;
@@ -19,11 +21,6 @@ export const Backdrop = styled.div`
     visibility: visible;
     opacity: 1;
   }
-
-  &.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-  }
 `;
 
 export const Window = styled.div`
@@ -34,7 +31,11 @@ export const Window = styled.div`
   padding: 40px 20px;
   background-color: var(--white);
   overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100vh);
   z-index: 5;
+  transition: all 0.3s ease-in-out;
 
   &::-webkit-scrollbar {
     width: 3px;
@@ -54,14 +55,6 @@ export const Window = styled.div`
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    transform: scale(1);
-  }
-
-  &.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.7);
-    transform: translateY(-100vh);
   }
 `;
 

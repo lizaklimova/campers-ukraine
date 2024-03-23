@@ -8,6 +8,7 @@ const commonTheme = {
   backdrop: "rgba(17, 18, 19, 0.40)",
   borderColor: "rgba(16, 24, 40, 0.2)",
   placeholderColor: "rgba(16, 24, 40, 0.6)",
+  heroGradiend: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
 };
 
 export const lightTheme = Object.freeze({
