@@ -8,19 +8,12 @@ export const Backdrop = styled.div`
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 5;
-  background-color: var(--backdrop);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5;
+  background-color: var(--backdrop);
   transition: all var(--cubic-transition);
-
-  &.is-shown {
-    visibility: visible;
-    opacity: 1;
-  }
 `;
 
 export const Window = styled.div`
@@ -29,13 +22,9 @@ export const Window = styled.div`
   height: 90vh;
   border-radius: 20px;
   padding: 40px 20px;
-  background-color: var(--white);
+  background-color: var(--contrast);
   overflow-y: auto;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-100vh);
   z-index: 5;
-  transition: all 0.3s ease-in-out;
 
   &::-webkit-scrollbar {
     width: 3px;
@@ -44,17 +33,11 @@ export const Window = styled.div`
   &::-webkit-scrollbar-track {
     border-radius: 50px;
     margin: 25px 0;
-    background-color: var(--white);
+    background-color: var(--grey);
   }
 
   @media screen and (min-width: 1440px) {
     padding: 40px;
-  }
-
-  &.is-shown {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
   }
 `;
 

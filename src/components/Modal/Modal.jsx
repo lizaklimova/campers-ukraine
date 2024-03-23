@@ -56,12 +56,9 @@ const Modal = ({
   };
 
   return createPortal(
-    <Backdrop
-      className={isModalShown ? "is-shown" : "is-hidden"}
-      onClick={handleBackdropClose}
-    >
-      <MainContainer onClick={handleBackdropClose}>
-        <Window className={isModalShown ? "is-shown" : "is-hidden"}>
+    <Backdrop onClick={handleBackdropClose}>
+      <MainContainer>
+        <Window>
           <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
             <CloseIcon width={20} height={20} />
           </CLoseBtn>

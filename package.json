@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://lizaklimova.github.io/campers-ukraine",
   "dependencies": {
+    "@mui/material": "^5.15.14",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -13,6 +15,7 @@
     "formik": "^2.4.5",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
+    "react-animated-modal": "^1.1.1",
     "react-datepicker": "^6.5.0",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.11.2",

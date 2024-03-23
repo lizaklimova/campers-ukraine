@@ -70,9 +70,7 @@ export const CardItem = styled.li`
   border-radius: 20px;
   border: 1px solid var(--border-color);
   padding: 15px;
-  background-color: var(--white);
-  box-shadow: rgba(239, 241, 243, 0.3) 0px 1px 2px 0px,
-    rgba(225, 229, 232, 0.15) 0px 1px 3px 1px;
+  background-color: var(--contrast);
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -170,6 +168,7 @@ export const RatingWrap = styled.div`
   gap: 5px;
 
   button {
+    color: var(--text-color);
     text-decoration: underline;
     cursor: pointer;
     transition: color var(--linear-transition);

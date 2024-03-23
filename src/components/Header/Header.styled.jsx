@@ -6,7 +6,7 @@ export const HeaderBlock = styled.header`
   top: 0;
   right: 0;
   left: 0;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@ export const HeaderBlock = styled.header`
   padding: 15px;
   min-height: 100px;
   background-color: var(--background);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-shadow: var(--box-shadow);
 `;
 
 export const Nav = styled.nav`

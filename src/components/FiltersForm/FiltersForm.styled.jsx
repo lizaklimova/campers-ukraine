@@ -82,6 +82,16 @@ export const LabelLocation = styled.label`
     opacity: 1;
     color: var(--light-text);
     transition: box-shadow var(--linear-transition);
+    background-color: var(--grey);
+
+    input {
+      color: var(--light-text);
+
+      &::placeholder {
+        color: var(--light-text);
+        opacity: 0.5;
+      }
+    }
 
     &:focus-within {
       box-shadow: 0 0 5px var(--accent-red);
@@ -94,7 +104,7 @@ export const LabelLocation = styled.label`
 
   .react-dropdown-select-dropdown {
     width: 100%;
-    background-color: var(--input-background);
+    background-color: var(--grey);
     border-radius: 10px;
     border: 2px solid var(--accent-red);
   }

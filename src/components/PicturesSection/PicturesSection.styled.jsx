@@ -33,8 +33,6 @@ export const SectionWrap = styled.div`
   }
 `;
 
-export const PicturesWrap = styled.div``;
-
 export const PicturePositionWrap = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
@@ -52,7 +50,7 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   text-align: justify;
 

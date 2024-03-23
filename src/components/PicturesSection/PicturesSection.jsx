@@ -6,7 +6,6 @@ import CamperCouple from "assets/pictures/camper-couple.jpg";
 import {
   PictureSection,
   SectionWrap,
-  PicturesWrap,
   PicturePositionWrap,
   TextBlock,
 } from "./PicturesSection.styled";
@@ -16,7 +15,7 @@ const PicturesSection = () => {
     <PictureSection>
       <MainContainer>
         <SectionWrap>
-          <PicturesWrap>
+          <div>
             <img
               src={CamperMountains}
               alt="campervan in the mountains"
@@ -45,7 +44,7 @@ const PicturesSection = () => {
               width={300}
               height={500}
             />
-          </PicturesWrap>
+          </div>
 
           <TextBlock>
             <div>

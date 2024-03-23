@@ -4,7 +4,7 @@ export const commonInputStyles = css`
   width: 100%;
   padding: 18px;
   background-color: var(--input-background);
-  color: var(--text-color);
+  color: var(--contrast);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;

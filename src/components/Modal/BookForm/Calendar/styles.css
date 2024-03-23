@@ -1,6 +1,6 @@
 .react-datepicker * {
   font-family: "Inter", sans-serif;
-  background-color: var(--white);
+  background-color: var(--contrast);
   color: var(--text-color);
 }
 
