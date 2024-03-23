@@ -18,6 +18,7 @@ const commonRadioCheckbox = css`
   padding: 10px;
   color: var(--text-color);
   cursor: pointer;
+  pointer-events: all;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -73,6 +74,7 @@ export const LabelLocation = styled.label`
     top: 45px;
     left: 15px;
     fill: none;
+    z-index: 1;
     stroke: var(--text-color);
   }
 
@@ -84,6 +86,7 @@ export const LabelLocation = styled.label`
     color: var(--light-text);
     transition: box-shadow var(--linear-transition);
     background-color: var(--grey);
+    z-index: 1;
 
     input {
       color: var(--light-text);
@@ -142,6 +145,7 @@ export const LabelFilters = styled.label`
   font-weight: 600;
   line-height: 1.2;
   color: var(--text-color);
+  pointer-events: none;
 
   hr {
     opacity: 0.3;
@@ -184,6 +188,7 @@ export const InputWrap = styled.div`
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    pointer-events: all;
 
     &:checked + div {
       border-color: var(--accent-red);

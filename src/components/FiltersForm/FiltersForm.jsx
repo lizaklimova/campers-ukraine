@@ -80,7 +80,6 @@ const FiltersForm = ({ setPage, searchParams, setSearchParams }) => {
           placeholder="Location"
           options={LOCATION_OPTIONS}
           onChange={selectLocation}
-          closeOnScroll={true}
           color="var(--accent-red)"
         />
         <LocationIcon width={20} height={20} />
