@@ -56,7 +56,14 @@ const Modal = ({
   return createPortal(
     <Backdrop onClick={handleBackdropClose}>
       <Window>
-        <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
+        <CLoseBtn
+          type="button"
+          aria-label="Close modal"
+          onClick={() => {
+            closeModal();
+            document.body.style.overflow = "";
+          }}
+        >
           <CloseIcon width={20} height={20} />
         </CLoseBtn>
 
