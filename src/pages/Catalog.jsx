@@ -75,18 +75,17 @@ const Catalog = () => {
             setSearchParams={setSearchParams}
           />
 
-          {page > 1 && (
-            <GoToPrevPageBtn
-              id="goBack"
-              type="button"
-              onClick={handleGoToPrevPage}
-            >
-              <FaArrowLeft size={20} fill="var(--text-color)" />
-              Go back
-            </GoToPrevPageBtn>
-          )}
-
           <ListBtnWrap id="advertBlock">
+            {page > 1 && (
+              <GoToPrevPageBtn
+                id="goBack"
+                type="button"
+                onClick={handleGoToPrevPage}
+              >
+                <FaArrowLeft size={20} fill="var(--text-color)" />
+                Go back
+              </GoToPrevPageBtn>
+            )}
             {adverts.length < 0 || error === "Not found" ? (
               <NoItemsMsg>No items</NoItemsMsg>
             ) : (
