@@ -29,7 +29,10 @@ const Modal = ({
   const tabsRef = useRef();
   useEffect(() => {
     const handleESCClose = (e) => {
-      if (e.code === "Escape") closeModal();
+      if (e.code === "Escape") {
+        closeModal();
+        document.body.style.overflow = "";
+      }
     };
 
     window.addEventListener("keydown", handleESCClose);
