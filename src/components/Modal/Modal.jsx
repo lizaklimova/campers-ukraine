@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon, LocationIcon, StarIcon } from "components/icons";
-import MainContainer from "layouts/MainContainer";
 import Tabs from "./Tabs";
 import {
   Backdrop,
@@ -56,56 +55,54 @@ const Modal = ({
 
   return createPortal(
     <Backdrop onClick={handleBackdropClose}>
-      <MainContainer onClick={handleBackdropClose}>
-        <Window>
-          <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
-            <CloseIcon width={20} height={20} />
-          </CLoseBtn>
+      <Window>
+        <CLoseBtn type="button" aria-label="Close modal" onClick={closeModal}>
+          <CloseIcon width={20} height={20} />
+        </CLoseBtn>
 
-          <Content>
-            <HeadInfo>
-              <Title>{card.name}</Title>
+        <Content>
+          <HeadInfo>
+            <Title>{card.name}</Title>
 
-              <RatingLocationWrap id="rating-wrap">
-                <RatingWrap>
-                  <StarIcon
-                    width={20}
-                    height={20}
-                    fillColor={"var(--accent-orange)"}
-                  />
-                  <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
-                </RatingWrap>
+            <RatingLocationWrap id="rating-wrap">
+              <RatingWrap>
+                <StarIcon
+                  width={20}
+                  height={20}
+                  fillColor={"var(--accent-orange)"}
+                />
+                <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
+              </RatingWrap>
 
-                <LocationWrap>
-                  <LocationIcon width={20} height={20} />
-                  <p>{card.location.split(",").reverse().join(", ")}</p>
-                </LocationWrap>
-              </RatingLocationWrap>
+              <LocationWrap>
+                <LocationIcon width={20} height={20} />
+                <p>{card.location.split(",").reverse().join(", ")}</p>
+              </LocationWrap>
+            </RatingLocationWrap>
 
-              <Price>€{card.price.toFixed(2)}</Price>
-            </HeadInfo>
+            <Price>€{card.price.toFixed(2)}</Price>
+          </HeadInfo>
 
-            <PicsList>
-              {card.gallery.length > 0 &&
-                card.gallery.map((link, i) => (
-                  <li key={`${card._id}/${i}`}>
-                    <img src={link} alt={card.name} />
-                  </li>
-                ))}
-            </PicsList>
+          <PicsList>
+            {card.gallery.length > 0 &&
+              card.gallery.map((link, i) => (
+                <li key={`${card._id}/${i}`}>
+                  <img src={link} alt={card.name} />
+                </li>
+              ))}
+          </PicsList>
 
-            <ModalDescr>{card.description}</ModalDescr>
+          <ModalDescr>{card.description}</ModalDescr>
 
-            <div ref={tabsRef}>
-              <Tabs
-                card={card}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
-            </div>
-          </Content>
-        </Window>
-      </MainContainer>
+          <div ref={tabsRef}>
+            <Tabs
+              card={card}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+          </div>
+        </Content>
+      </Window>
     </Backdrop>,
     document.getElementById("modal-root")
   );

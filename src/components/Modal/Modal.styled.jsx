@@ -17,7 +17,8 @@ export const Backdrop = styled.div`
 
 export const Window = styled.div`
   position: relative;
-  width: 100%;
+  width: 70%;
+  max-width: 900px;
   height: 90vh;
   border-radius: 20px;
   padding: 40px 20px;
@@ -33,6 +34,10 @@ export const Window = styled.div`
     border-radius: 50px;
     margin: 25px 0;
     background-color: var(--grey);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
   }
 
   @media screen and (min-width: 1440px) {

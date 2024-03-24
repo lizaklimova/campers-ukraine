@@ -20,6 +20,7 @@
 
 .react-datepicker-popper {
   width: 100%;
+  max-width: 270px;
 }
 
 .react-datepicker__current-month {
